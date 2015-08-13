@@ -16,4 +16,30 @@ class ArrayHelper
             unset($value[$key]);
         });
     }
+
+    /**
+     * 无限极序列排序数据
+     * 超过10级则返回错误
+     * @method array_tree
+     * @param  array     $data  要排序的数据
+     * @param  integer    $pid   上级id
+     * @param  integer    $level 层级
+     * @return array            处理后的数据
+     */
+    public static function array_tree($data, $pid = 0, $level = 0)
+    {
+        if ($level >= 10) {
+            return false;
+        }
+        static $list = array();
+        foreach ($data as $_k => $_v) {
+            if ($_v['pid'] == $pid) {
+                $_v['_level'] = $level;
+                $list[$_k] = $_v;
+                unset($data[$_k]);
+                self::tree($data, $_v['id'], $level + 1);
+            }
+        }
+        return $list;
+    }
 }

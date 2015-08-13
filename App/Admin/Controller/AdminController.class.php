@@ -47,4 +47,13 @@ class AdminController extends BaseController
     {
         $this->_before_edit();
     }
+
+    public function _before_del()
+    {
+        $id = I('get.id');
+
+        if ($id == 1) {
+            $this->error('默认管理员不可被删除');
+        }
+    }
 }
