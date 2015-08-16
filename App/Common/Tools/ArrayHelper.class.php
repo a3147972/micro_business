@@ -37,9 +37,45 @@ class ArrayHelper
                 $_v['_level'] = $level;
                 $list[$_k] = $_v;
                 unset($data[$_k]);
-                self::tree($data, $_v['id'], $level + 1);
+                self::array_tree($data, $_v['id'], $level + 1);
             }
         }
         return $list;
+    }
+
+    /**
+     * 根据二维数组的某个key的值过滤数组
+     *
+     * @method array2_filter
+     * @param  array        $array  要过滤的数组
+     * @param  string        $key   数组的key
+     * @param  string        $value 数组的值
+     * @return array                处理后的数组
+     */
+    public static function array2_filter($array, $key, $value)
+    {
+
+        foreach ($array as $_k => $_v) {
+            if ($_v[$key] == $value) {
+                unset($array[$_k]);
+            }
+        }
+
+        $array = self::array_number_key($array);
+        return $array;
+    }
+
+    /**
+     * 用数字作为数组的key
+     * @method array_number_key
+     * @param  [type]           $array [description]
+     * @return [type]                  [description]
+     */
+    public static function array_number_key($array)
+    {
+        $ArrayKey = range(0, count($array) - 1);
+        $array = array_combine($ArrayKey, $array);
+
+        return $array;
     }
 }

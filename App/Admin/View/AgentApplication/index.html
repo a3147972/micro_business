@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>{:C('ADMIN_TITLE')}</title>
+    <include file="Public/style" />
+  </head>
+  <body>
+    <include file="Public/header" />
+    <div id="container">
+  <include file="Public/menu" />
+      <div id="content">
+        <div class="container">
+          <div class="crumbs">
+            <ul id="breadcrumbs" class="breadcrumb">
+              <li>
+                <i class="icon-home">
+                </i>
+                <a href="index.html">
+                  后台首页
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="page-header">
+            <div class="page-title">
+              <h3>
+                代理申请
+              </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="widget box">
+                <div class="widget-header">
+                  <h4>
+                    <i class="icon-reorder">
+                    </i>
+                  </h4>
+                  <div class="toolbar no-padding">
+                    <div class="btn-group">
+                      <span class="btn btn-xs widget-collapse">
+                        <i class="icon-angle-down">
+                        </i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="widget-content">
+                  <table class="table table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          代理类型
+                        </th>
+                        <th>
+                          姓名
+                        </th>
+                        <th>
+                          手机号
+                        </th>
+                        <th>微信号</th>
+                        <th>从事微商时间</th>
+                        <th>月销售额</th>
+                        <th>状态</th>
+                        <th>
+                          操作
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <volist name="list" id="vo">
+                        <tr>
+                        <td>
+                          {$vo.id}
+                        </td>
+                        <td>
+                          {$vo.class_name}
+                        </td>
+                        <td>
+                          {$vo.name}
+                        </td>
+                        <td>{$vo.mobile}</td>
+                        <td>{$vo.wechat_number}</td>
+                        <td>{$vo.work_date}</td>
+                        <td>{$vo.month_sale}</td>
+                        <td>
+                          <switch name="vo.is_approve">
+                            <case value="1">
+                              通过审核
+                            </case>
+                            <case value="0">
+                              待审核
+                            </case>
+                            <case value="-1">
+                              审核驳回
+                            </case>
+                          </switch>
+                        </td>
+                        <td>
+                          <a href="{:U('status', array('id'=>$vo['id'],'status'=>1))}">审核通过</a>
+                          <a href="{:U('status', array('id'=>$vo['id'],'status'=>-1))}">审核驳回</a>
+                          <a href="{:U('del',array('id'=>$vo['id']))}">删除</a>
+                        </td>
+                      </tr>
+                      </volist>
+                    </tbody>
+                  </table>
+                  <include file="Public/page" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <include file="Public/script" />
+  </body>
+</html>

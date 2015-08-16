@@ -10,6 +10,11 @@ use Think\Controller;
 
 class LoginController extends Controller
 {
+    public function _empty()
+    {
+        redirect(U('Login/login'));
+    }
+
     public function login()
     {
         $this->display();
@@ -25,6 +30,15 @@ class LoginController extends Controller
     {
         $username = I('post.username');
         $password = I('post.password');
+
+        if (empty($username)) {
+            $this->error('请输入用户名');
+        }
+
+        if (empty($password)) {
+            $this->error('请输入密码');
+        }
+        $model = D('Admin');
 
         $info = $model->getInfoByUsername($username);
 

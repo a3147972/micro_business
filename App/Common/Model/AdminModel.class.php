@@ -72,7 +72,7 @@ class AdminModel extends BaseModel
 
         //获取组列表
         $group_id = array_column($list, 'group_id');
-        $group_map['id'] = $group_id;
+        $group_map['id'] = array('in', $group_id);
 
         $group_list = D('Group')->lists($group_map);
         $group_list = ArrayHelper::ArrayKeyReplace($group_list, 'id', 'group_id');

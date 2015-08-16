@@ -1,2 +1,4 @@
 <?php
-return array();
+return array(
+    'ADMIN_TITLE' => '后台管理',
+);

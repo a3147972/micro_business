@@ -55,7 +55,7 @@ class Page
             $page['name'] = 'list';
             $page['page'] = $i;
 
-            if ($this->page === $i) {
+            if (intval($this->page) === intval($i)) {
                 $page['status'] = 'now';
             } else {
                 unset($page['status']);

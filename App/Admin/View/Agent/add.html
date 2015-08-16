@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"
+  />
+  <title>{:C('ADMIN_TITLE')}</title>
+  <include file="Public/style" />
+</head>
+<body>
+  <include file="Public/header" />
+  <div id="container">
+    <include file="Public/menu" />
+    <div id="content">
+      <div class="container">
+        <div class="crumbs">
+          <ul id="breadcrumbs" class="breadcrumb">
+            <li>
+              <i class="icon-home">
+              </i>
+              <a href="index.html">
+                后台首页
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="page-header">
+          <div class="page-title">
+            <h3>
+            <eq name="action" value="add">
+              新增代理商
+            <else />
+              编辑代理商
+            </eq>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="widget box">
+              <div class="widget-header">
+                <h4>
+                  <i class="icon-reorder">
+                  </i>
+                </h4>
+              </div>
+              <div class="widget-content">
+                <eq name="action" value="add">
+                  <form class="form-horizontal row-border" action="{:U('insert')}" onSubmit="return AjaxForm(this)" method="post">
+                <else />
+                  <form class="form-horizontal row-border" action="{:U('update')}" onSubmit="return AjaxForm(this)" method="post">
+                </eq>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    代理商姓名:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="name" class="form-control" placeholder="代理商姓名" value="{$vo.name}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    代理商级别:
+                    </label>
+                    <div class="col-md-10">
+                      <select id="input17" class="select2-select-00 col-md-12 full-width-fix">
+                      <volist name="class_list" id="class_vo">
+                        <option value="{$class_vo.id}" <eq name="vo.class_id" value="$class_vo['id']">selected="selected"</eq>>
+                        {$class_vo.name}
+                          </option>
+                      </volist>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    代理商授权编码:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="authorize_code" class="form-control" placeholder="代理商授权编码" value="{$vo.authorize_code}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    代理商照片:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="avatar" class="form-control" placeholder="代理商照片" value="{$vo.avatar}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    手机号:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="mobile" class="form-control" placeholder="手机号" value="{$vo.mobile}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    身份证号:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="id_card" class="form-control" placeholder="身份证号" value="{$vo.id_card}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-10">
+                      <eq name="action" value="edit">
+                        <input type="hidden" name="id" value="{$vo.id}">
+                      </eq>
+                      <button class="btn btn-success" type="submit">
+                        提交
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include file="Public/script" />
+</body>
+</html>

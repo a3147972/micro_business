@@ -34,8 +34,12 @@ class NodeModel extends BaseModel
      */
     public function getGroupNodeList($group_id)
     {
+        if ($group_id == 1) {
+            //超级管理员返回所有节点
+            $list = $this->lists(array(), 'id asc');
+            return $list;
+        }
         $map['group_id'] = $group_id;
-
         $node_list = D('GroupNodeMap')->_list($map, 'node_id');
 
         if (empty($node_list)) {
@@ -44,7 +48,7 @@ class NodeModel extends BaseModel
         $node_list = array_column($node_list, 'node_id');
         $where['id'] = array('in', $node_list);
 
-        $list = $this->list($where);
+        $list = $this->lists($where, 'id asc');
 
         return $list;
     }

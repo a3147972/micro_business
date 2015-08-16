@@ -7,6 +7,7 @@
  */
 namespace Admin\Controller;
 
+use Common\Tools\ArrayHelper;
 use Common\Tools\Page;
 use Think\Controller;
 
@@ -24,6 +25,10 @@ class BaseController extends Controller
                 redirect(U('Login/logout')); //没有权限直接退出
             }
         }
+        //获取左侧菜单列表
+        $menu_list = $this->menu();
+        // dump($menu_list);exit();
+        $this->assign('menu_list', $menu_list);
     }
 
     /**
@@ -35,7 +40,7 @@ class BaseController extends Controller
         $page_size = I('page_size', 10);
         $order = I('order', '');
 
-        $model = D(MODULE_NAME);
+        $model = D(CONTROLLER_NAME);
 
         //查询值
         $pk = $model->getPk();
@@ -69,7 +74,7 @@ class BaseController extends Controller
         $page_list = $Page->show();
         $get = I('get.');
         foreach ($page_list as $_k => $_v) {
-            $page_list[$_k]['url'] = U(MODULE_NAME . '/index', array_merge($get, array('page' => $_v['page'], 'page_size' => $page_size, 'order' => $order)));
+            $page_list[$_k]['url'] = U(CONTROLLER_NAME . '/index', array_merge($get, array('page' => $_v['page'], 'page_size' => $page_size, 'order' => $order)));
         }
 
         return $page_list;
@@ -86,16 +91,15 @@ class BaseController extends Controller
      */
     public function insert()
     {
-        $model = D(MODULE_NAME);
+        $model = D(CONTROLLER_NAME);
 
         if (!$model->create()) {
             $this->error($model->getError());
         }
-
         $insert_result = $model->add();
 
         if ($insert_result) {
-            $this->success('新增成功', U(MODULE_NAME . '/index'));
+            $this->success('新增成功', U(CONTROLLER_NAME . '/index'));
         } else {
             $this->error('新增失败');
         }
@@ -103,6 +107,15 @@ class BaseController extends Controller
 
     public function edit()
     {
+        $model = D(CONTROLLER_NAME);
+
+        $pk = $model->getPk();
+
+        $map[$pk] = I('get.' . $pk);
+
+        $info = $model->_get($map);
+
+        $this->assign('vo', $info);
         $this->assign('action', 'edit');
         $this->display('add');
     }
@@ -112,7 +125,7 @@ class BaseController extends Controller
      */
     public function update()
     {
-        $model = D(MODULE_NAME);
+        $model = D(CONTROLLER_NAME);
 
         if (!$model->create()) {
             $this->error($model->getError());
@@ -124,7 +137,7 @@ class BaseController extends Controller
         $update_result = $model->where($map)->save();
 
         if ($update_result !== false) {
-            $this->success('修改成功', U(MODULE_NAME . '/index'));
+            $this->success('修改成功', U(CONTROLLER_NAME . '/index'));
         } else {
             $this->error('修改失败');
         }
@@ -135,7 +148,7 @@ class BaseController extends Controller
      */
     public function del()
     {
-        $model = D(MODULE_NAME);
+        $model = D(CONTROLLER_NAME);
 
         $pk = $model->getPk();
 
@@ -144,9 +157,33 @@ class BaseController extends Controller
         $del_result = $model->where($map)->delete();
 
         if ($del_result) {
-            $this->success('删除成功', U(MODULE_NAME . '/index'));
+            $this->success('删除成功', U(CONTROLLER_NAME . '/index'));
         } else {
             $this->error('删除失败');
         }
+    }
+
+    /**
+     * 获取左侧菜单列表
+     * @method menu
+     * @return array 菜单列表
+     */
+    private function menu()
+    {
+        $node_list = session('node_list');
+        $node_list = ArrayHelper::array2_filter($node_list, 'is_show', 0);
+        $node_list = array_column($node_list, null, 'id');
+
+        $list = array();
+        foreach ($node_list as $_k => $_v) {
+            if (intval($_v['pid']) === 0) {
+                $list[$_k] = $_v;
+            } else {
+                $list[$_v['pid']]['child_list'][] = $_v;
+            }
+        }
+        $list = ArrayHelper::array_number_key($list);
+
+        return $list;
     }
 }

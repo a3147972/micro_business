@@ -1,0 +1,44 @@
+<div id="sidebar" class="sidebar-fixed">
+        <div id="sidebar-content">
+          <ul id="nav">
+          <volist name="menu_list" id="menu_vo">
+              <li>
+                <a href="{:U($menu_vo['node'])}">
+                  {$menu_vo['name']}
+                </a>
+                <if condition="!empty($menu_vo['child_list'])" >
+                  <ul class="sub-menu">
+                    <volist name="menu_vo.child_list" id="menu_child_vo">
+                        <li>
+                          <a href="{:U($menu_child_vo['node'])}">
+                            <i class="icon-angle-right">
+                            </i>
+                            {$menu_child_vo['name']}
+                          </a>
+                        </li>
+                    </volist>
+                  </ul>
+                </if>
+              </li>
+          </volist>
+          </ul>
+          <div class="sidebar-widget align-center">
+            <div class="btn-group" data-toggle="buttons" id="theme-switcher">
+              <label class="btn active">
+                <input type="radio" name="theme-switcher" data-theme="bright">
+                <i class="icon-sun">
+                </i>
+                白天
+              </label>
+              <label class="btn">
+                <input type="radio" name="theme-switcher" data-theme="dark">
+                <i class="icon-moon">
+                </i>
+                夜晚
+              </label>
+            </div>
+          </div>
+        </div>
+        <div id="divider" class="resizeable">
+        </div>
+      </div>

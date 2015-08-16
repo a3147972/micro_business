@@ -1,7 +1,7 @@
 <?php
-namespace Admin\Model;
+namespace Common\Model;
 
-use Admin\Model\BaseModel;
+use Common\Model\BaseModel;
 
 class MenuModel extends BaseModel
 {
@@ -24,7 +24,7 @@ class MenuModel extends BaseModel
     {
         $type = I('type');
 
-        if ($type == 2 && empty($v)){
+        if ($type == 2 && empty($v)) {
             return false;
         }
         return true;

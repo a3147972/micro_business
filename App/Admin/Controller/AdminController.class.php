@@ -21,6 +21,7 @@ class AdminController extends BaseController
         $page_size = I('page_size', 10);
 
         $list = $model->lists(array(), 'id desc', $page, $page_size);
+
         $count = $model->_count();
 
         $page_list = $this->page($count, $page, $page_size);
