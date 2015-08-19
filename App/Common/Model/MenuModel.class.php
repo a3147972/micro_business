@@ -2,6 +2,7 @@
 namespace Common\Model;
 
 use Common\Model\BaseModel;
+use Common\Tools\ArrayHelper;
 
 class MenuModel extends BaseModel
 {
@@ -50,4 +51,39 @@ class MenuModel extends BaseModel
         array('ctime', 'now', 1, 'function'),
         array('mtime', 'now', 3, 'function'),
     );
+
+    public function lists($map = array(), $order = '', $page = 1, $page_size = 10)
+    {
+        $field = 'id,pid,name,type,url,key,level';
+        $list = $this->_list($map, $field, $order, $page, $page_size);
+
+        if (empty($list)) {
+            return array();
+        }
+        //查询父栏目
+        $pid = array_column($list, 'pid');
+        $pid = array_filter($pid);
+
+        if (empty($pid)) {
+            return $list;
+        }
+
+        $parent_map['id'] = array('in', $pid);
+        $parent_field = 'id,name';
+        $parent_list = $this->_list($parent_map, $parent_field);
+
+        ArrayHelper::ArrayKeyReplace($parent_list, 'id', 'pid');
+        ArrayHelper::ArrayKeyReplace($parent_list, 'name', 'parent_name');
+        $parent_list = array_column($parent_list, null, 'pid');
+
+        //合并数据
+        foreach ($list as $_k => $_v) {
+            if ($_v['pid'] != 0) {
+                $list[$_k] = array_merge($_v, $parent_list[$_v['pid']]);
+            }
+
+        }
+
+        return $list;
+    }
 }

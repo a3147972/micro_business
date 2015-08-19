@@ -58,11 +58,25 @@
     </script>
     <script type="text/javascript" src="__PUBLIC__/plugins/bootstrap-multiselect/bootstrap-multiselect.min.js">
     </script>
+    <script type="text/javascript" src="__PUBLIC__/plugins/ajaxuploadfile.js">
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/plugins/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="__PUBLIC__/plugins/ueditor/ueditor.all.js"></script>
     <script type="text/javascript" src="__PUBLIC__/assets/js/app.js">
     </script>
     <script type="text/javascript" src="__PUBLIC__/assets/js/plugins.js">
     </script>
     <script type="text/javascript" src="__PUBLIC__/assets/js/plugins.form-components.js">
+    </script>
+
+    <script type="text/javascript" src="__PUBLIC__/assets/js/custom.js">
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/demo/pages_calendar.js">
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/demo/form_components.js">
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/common.js">
     </script>
     <script>
       $(document).ready(function() {
@@ -70,13 +84,13 @@
         Plugins.init();
         FormComponents.init()
       });
-    </script>
-    <script type="text/javascript" src="__PUBLIC__/assets/js/custom.js">
-    </script>
-    <script type="text/javascript" src="__PUBLIC__/assets/js/demo/pages_calendar.js">
-    </script>
-    <script type="text/javascript" src="__PUBLIC__/assets/js/demo/form_components.js">
-    </script>
 
-    <script type="text/javascript" src="__PUBLIC__/assets/js/common.js">
+      if ($('[editor]')) {
+        $('[editor]').each(function(i, e) {
+            var id = $(this).attr('id');
+            var ue = UE.getEditor(id, {
+                initialFrameHeight:400  //初始化编辑器高度,默认320
+            });
+        })
+      }
     </script>

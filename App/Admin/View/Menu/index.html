@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>{:C('ADMIN_TITLE')}</title>
+    <include file="Public/style" />
+  </head>
+  <body>
+    <include file="Public/header" />
+    <div id="container">
+  <include file="Public/menu" />
+      <div id="content">
+        <div class="container">
+          <div class="crumbs">
+            <ul id="breadcrumbs" class="breadcrumb">
+              <li>
+                <i class="icon-home">
+                </i>
+                <a href="index.html">
+                  后台首页
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="page-header">
+            <div class="page-title">
+              <h3>
+                自定义菜单
+              </h3>
+            </div>
+          </div>
+          <p class="btn-toolbar btn-toolbar-demo">
+            <a href="{:U('add')}" class="btn btn-primary">新增</a>
+            <a href="{:U('create')}" class="btn btn-success" onclick="return AjaxBtn(this)">生成菜单</a>
+          </p>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="widget box">
+                <div class="widget-header">
+                  <h4>
+                    <i class="icon-reorder">
+                    </i>
+                  </h4>
+                  <div class="toolbar no-padding">
+                    <div class="btn-group">
+                      <span class="btn btn-xs widget-collapse">
+                        <i class="icon-angle-down">
+                        </i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="widget-content">
+                  <table class="table table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th>
+                          ID
+                        </th>
+                        <th>
+                          菜单名称
+                        </th>
+                        <th>上级菜单</th>
+                        <th>菜单类型</th>
+                        <th>访问URL</th>
+                        <th>
+                          点击Key
+                        </th>
+                        <th>
+                          操作
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <volist name="list" id="vo">
+                        <tr>
+                        <td>
+                          {$vo.id}
+                        </td>
+                        <td>
+                          {:str_repeat('━', $vo['_level'])}{$vo.name}
+                        </td>
+                        <td>{$vo.parent_name | default = "顶级栏目"}</td>
+                        <td>
+                          <switch name="vo.type">
+                            <case value="1">点击菜单</case>
+                            <case value="2">链接跳转</case>
+                          </switch>
+                        </td>
+                        <td>
+                        {$vo.url}
+                        </td>
+                        <td>{$vo.key}</td>
+                        <td>
+                          <if condition="$vo['level']+1 elt 2">
+                            <a href="{:U('add', array('pid'=>$vo['id'], 'level'=>$vo['level']+1))}">新增子菜单</a>
+                          </if>
+                          <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>
+                          <a href="{:U('del',array('id'=>$vo['id']))}" onclick="return AjaxBtn(this)">删除</a>
+                        </td>
+                      </tr>
+                      </volist>
+                    </tbody>
+                  </table>
+                  <include file="Public/page" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <include file="Public/script" />
+  </body>
+</html>

@@ -4,3 +4,10 @@ function now()
 {
     return date('Y-m-d H:i:s', time());
 }
+
+function imgFormat($path)
+{
+    $path = file_exists($path) ? __ROOT__ . '/' . ltrim($path, '.') : __ROOT__ . '/Public/assets/img/no-images.png';
+
+    return $path;
+}

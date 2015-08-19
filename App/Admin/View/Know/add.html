@@ -1,1 +1,115 @@
-add.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"
+  />
+  <title>{:C('ADMIN_TITLE')}</title>
+  <include file="Public/style" />
+</head>
+<body>
+  <include file="Public/header" />
+  <div id="container">
+    <include file="Public/menu" />
+    <div id="content">
+      <div class="container">
+        <div class="crumbs">
+          <ul id="breadcrumbs" class="breadcrumb">
+            <li>
+              <i class="icon-home">
+              </i>
+              <a href="index.html">
+                后台首页
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="page-header">
+          <div class="page-title">
+            <h3>
+            <eq name="action" value="add">
+              新增知识
+            <else />
+              编辑知识
+            </eq>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="widget box">
+              <div class="widget-header">
+                <h4>
+                  <i class="icon-reorder">
+                  </i>
+                </h4>
+              </div>
+              <div class="widget-content">
+                <eq name="action" value="add">
+                  <form class="form-horizontal row-border" action="{:U('insert')}" onSubmit="return AjaxForm(this)" method="post">
+                <else />
+                  <form class="form-horizontal row-border" action="{:U('update')}" onSubmit="return AjaxForm(this)" method="post">
+                </eq>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    标题:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="title" class="form-control" placeholder="标题" value="{$vo.title}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    知识分类:
+                    </label>
+                    <div class="col-md-10">
+                      <select id="input17" class="select2-select-00 col-md-12 full-width-fix" name="class_id">
+                      <volist name="class_list" id="class_vo">
+                        <option value="{$class_vo.id}" <eq name="vo.class_id" value="$class_vo['id']">selected="selected"</eq>>
+                        {$class_vo.name}
+                          </option>
+                      </volist>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    缩略图:
+                    </label>
+                    <div class="col-md-10">
+                      <img src="{$vo.thumb|imgFormat}" alt="" width="150" id="review-thumb"><br>
+                      <br>
+                      <a href="" class="btn btn-inverse" onclick="document.all.tt.click();return false;">上传图片</a>
+                      <input type="file" name="tt" onchange="return AjaxUpload(this)" data-href="{:U('Public/UploadThumb')}" data-input="input-thumb" data-thumb="review-thumb" id="thumb" style="display:none;">
+                      <input type="hidden" name="thumb" id="input-thumb" value="{$vo.thumb}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    内容:
+                    </label>
+                    <div class="col-md-10">
+                      <textarea rows="3" cols="5" name="content" id="editor1" editor >{$vo.content}</textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-10">
+                      <eq name="action" value="edit">
+                        <input type="hidden" name="id" value="{$vo.id}">
+                      </eq>
+                      <button class="btn btn-success" type="submit">
+                        提交
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include file="Public/script" />
+</body>
+</html>

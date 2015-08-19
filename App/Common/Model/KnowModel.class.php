@@ -7,6 +7,7 @@
 namespace Common\Model;
 
 use Common\Model\BaseModel;
+use Common\Tools\ArrayHelper;
 
 class KnowModel extends BaseModel
 {
@@ -24,4 +25,34 @@ class KnowModel extends BaseModel
         array('ctime', 'now', 1, 'function'),
         array('mtime', 'now', 3, 'function'),
     );
+
+    public function lists($map = array(), $order = '', $page = 1, $page_size = 10)
+    {
+        $field = 'id,class_id,title,thumb,ctime';
+        $list = $this->_list($map, $field, $order);
+
+        if (empty($list)) {
+            return $list;
+        }
+
+        //查询知识分类
+        $class_id = array_column($list, 'class_id');
+
+        $class_map['id'] = array('in', $class_id);
+        $class_field = 'id,name,thumb';
+
+        $class_list = D('KnowClass')->_list($class_map, $class_field);
+
+        ArrayHelper::ArrayKeyReplace($class_list, 'id', 'class_id');
+        ArrayHelper::ArrayKeyReplace($class_list, 'name', 'class_name');
+        ArrayHelper::ArrayKeyReplace($class_list, 'thumb', 'class_thumb');
+
+        $class_list = array_column($class_list, null, 'class_id');
+
+        //合并数据
+        foreach ($list as $_k => $_v) {
+            $list[$_k] = array_merge($_v, $class_list[$_v['class_id']]);
+        }
+        return $list;
+    }
 }

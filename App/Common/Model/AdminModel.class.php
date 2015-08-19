@@ -26,7 +26,10 @@ class AdminModel extends BaseModel
     protected $_auto = array(
         array('ctime', 'now', 1, 'function'),
         array('mtime', 'now', 3, 'function'),
+        array('password', 'md5', 1, 'function'),
+        array('password', '', 2, 'ignore'),
     );
+
     /**
      * 根据Username查询管理员信息
      * @param  string $username 用户名
@@ -75,9 +78,11 @@ class AdminModel extends BaseModel
         $group_map['id'] = array('in', $group_id);
 
         $group_list = D('Group')->lists($group_map);
-        $group_list = ArrayHelper::ArrayKeyReplace($group_list, 'id', 'group_id');
-        $group_list = array_column($group_list, null, 'group_id');
 
+        ArrayHelper::ArrayKeyReplace($group_list, 'id', 'group_id');
+        ArrayHelper::ArrayKeyReplace($group_list, 'name', 'group_name');
+
+        $group_list = array_column($group_list, null, 'group_id');
         //合并数据
         foreach ($list as $_k => $_v) {
             $list[$_k] = array_merge($_v, $group_list[$_v['group_id']]);

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"
+  />
+  <title>{:C('ADMIN_TITLE')}</title>
+  <include file="Public/style" />
+</head>
+<body>
+  <include file="Public/header" />
+  <div id="container">
+    <include file="Public/menu" />
+    <div id="content">
+      <div class="container">
+        <div class="crumbs">
+          <ul id="breadcrumbs" class="breadcrumb">
+            <li>
+              <i class="icon-home">
+              </i>
+              <a href="index.html">
+                后台首页
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="page-header">
+          <div class="page-title">
+            <h3>
+            <eq name="action" value="add">
+              新增代理商
+            <else />
+              编辑代理商
+            </eq>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="widget box">
+              <div class="widget-header">
+                <h4>
+                  <i class="icon-reorder">
+                  </i>
+                </h4>
+              </div>
+              <div class="widget-content">
+                <eq name="action" value="add">
+                  <form class="form-horizontal row-border" action="{:U('insert')}" onSubmit="return AjaxForm(this)" method="post">
+                <else />
+                  <form class="form-horizontal row-border" action="{:U('update')}" onSubmit="return AjaxForm(this)" method="post">
+                </eq>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    自定义菜单名称:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="name" class="form-control" placeholder="自定义菜单名称" value="{$vo.name}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    菜单类型:
+                    </label>
+                    <div class="col-md-10">
+ <label class="radio-inline">
+                          <input type="radio" class="uniform" name="type" value="1" checked="checked">
+点击菜单
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" class="uniform" name="type" value="2"
+                          <eq name="vo.type" value="2">checked="checked"</eq>>
+                          链接跳转
+                        </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    访问URL:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="url" class="form-control" placeholder="访问URL" value="{$vo.url}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    点击Key:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="key" class="form-control" placeholder="点击Key" value="{$vo.key}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-10">
+                      <eq name="action" value="edit">
+                        <input type="hidden" name="id" value="{$vo.id}">
+                      </eq>
+                      <input type="hidden" name="pid" value="{:I('pid', 0)}">
+                      <input type="hidden" name="level" value="{$vo.level|default=I('level',1)}">
+                      <button class="btn btn-success" type="submit">
+                        提交
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include file="Public/script" />
+</body>
+</html>

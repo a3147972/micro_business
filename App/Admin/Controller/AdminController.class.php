@@ -46,7 +46,7 @@ class AdminController extends BaseController
      */
     public function _before_edit()
     {
-        $this->_before_edit();
+        $this->_before_add();
     }
 
     public function _before_del()

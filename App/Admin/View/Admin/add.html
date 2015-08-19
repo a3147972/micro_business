@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"
+  />
+  <title>{:C('ADMIN_TITLE')}</title>
+  <include file="Public/style" />
+</head>
+<body>
+  <include file="Public/header" />
+  <div id="container">
+    <include file="Public/menu" />
+    <div id="content">
+      <div class="container">
+        <div class="crumbs">
+          <ul id="breadcrumbs" class="breadcrumb">
+            <li>
+              <i class="icon-home">
+              </i>
+              <a href="index.html">
+                后台首页
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="page-header">
+          <div class="page-title">
+            <h3>
+            <eq name="action" value="add">
+              新增管理员
+            <else />
+              编辑管理员
+            </eq>
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="widget box">
+              <div class="widget-header">
+                <h4>
+                  <i class="icon-reorder">
+                  </i>
+                </h4>
+              </div>
+              <div class="widget-content">
+                <eq name="action" value="add">
+                  <form class="form-horizontal row-border" action="{:U('insert')}" onSubmit="return AjaxForm(this)" method="post">
+                <else />
+                  <form class="form-horizontal row-border" action="{:U('update')}" onSubmit="return AjaxForm(this)" method="post">
+                </eq>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    用户名:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="username" class="form-control" placeholder="用户名" value="{$vo.username}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    密码:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="password" class="form-control" placeholder="密码" value="">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    昵称:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="nickname" class="form-control" placeholder="昵称" value="{$vo.nickname}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    真实姓名:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="name" class="form-control" placeholder="真实姓名" value="{$vo.name}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    性别:
+                    </label>
+                    <div class="col-md-10">
+                      <label class="radio-inline">
+                          <input type="radio" class="uniform" name="sex" value="1">
+                          男
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" class="uniform" name="sex" value="2"
+                          checked>
+                          女
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" class="uniform" name="sex" value="3"
+                          disabled>
+                          保密
+                        </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    年龄:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="age" class="form-control" placeholder="年龄" value="{$vo.age}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-md-10">
+                      <eq name="action" value="edit">
+                        <input type="hidden" name="id" value="{$vo.id}">
+                      </eq>
+                      <button class="btn btn-success" type="submit">
+                        提交
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include file="Public/script" />
+</body>
+</html>

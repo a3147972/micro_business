@@ -7,6 +7,7 @@
 namespace Common\Model;
 
 use Common\Model\BaseModel;
+use Common\Tools\ArrayHelper;
 
 class AgentModel extends BaseModel
 {
@@ -28,4 +29,35 @@ class AgentModel extends BaseModel
         array('ctime', 'now', 1, 'function'),
         array('mtime', 'now', 3, 'function'),
     );
+
+    /**
+     * 查询代理商列表信息
+     * @method lists
+     * @param  array   $map       查询条件
+     * @param  string  $order     排序规则
+     * @param  integer $page      当前页
+     * @param  integer $page_size 每页条数
+     * @return array              查到的数据
+     */
+    public function lists($map = array(), $order = '', $page = 1, $page_size = 10)
+    {
+        $field = 'id,name,avatar,mobile,id_card,wechat_number,class_id,authorize_code,ctime';
+
+        $list = $this->_list($map, $field, $order, $page, $page_size);
+
+        //查询代理分类
+        $class_id = array_column($list, 'class_id');
+        $class_map['id'] = array('in', $class_id);
+        $class_field = 'id,name,price';
+
+        $class_list = D('AgentClass')->_list($class_map, $class_field);
+        ArrayHelper::ArrayKeyReplace($class_list, 'id', 'class_id');
+        ArrayHelper::ArrayKeyReplace($class_list, 'name', 'class_name');
+        $class_list = array_column($class_list, null, 'class_id');
+        foreach ($list as $_k => $_v) {
+            $list[$_k] = array_merge($_v, $class_list[$_v['class_id']]);
+        }
+
+        return $list;
+    }
 }

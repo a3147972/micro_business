@@ -86,14 +86,14 @@
                         <td>{$vo.class_name}</td>
                         <td>{$vo.authorize_code}</td>
                         <td>
-                          {$vo.avatar}
+                        <img src="{$vo.avatar|imgFormat}" alt="" width="150">
                         </td>
                         <td>{$vo.mobile}</td>
                         <td>{$vo.id_card}</td>
                         <td>{$vo.wechat_number}</td>
                         <td>
                           <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>
-                          <a href="{:U('del',array('id'=>$vo['id']))}">删除</a>
+                          <a href="{:U('del',array('id'=>$vo['id']))}" onclick="return AjaxBtn(this)">删除</a>
                         </td>
                       </tr>
                       </volist>

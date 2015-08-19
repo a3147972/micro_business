@@ -14,7 +14,8 @@ class MaterialModel extends BaseModel
 
     //自动验证
     protected $_validate = array(
-        array('title', 'require', '请输入课程标题'),
+        array('title', 'require', '请输入素材标题'),
+        array('text', 'require', '请输入素材内容'),
     );
 
     //自动完成
