@@ -16,12 +16,13 @@ class BaseController extends Controller
     public function _initialize()
     {
         //权限判断
-        if (session('gid') !== 1) {
+        if (session('gid') != 1) {
             $node = CONTROLLER_NAME . '/' . ACTION_NAME;
             $node_list = session('node_list');
             $node_list = array_column($node_list, 'node');
 
-            if (is_null(array_search($node, $node_list))) {
+            $check_result = array_search($node, $node_list);
+            if (empty($check_result)) {
                 redirect(U('Login/logout')); //没有权限直接退出
             }
         }

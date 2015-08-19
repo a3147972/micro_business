@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"
+  />
+  <title>{:C('ADMIN_TITLE')}</title>
+  <include file="Public/style" />
+</head>
+<body>
+  <include file="Public/header" />
+  <div id="container">
+    <include file="Public/menu" />
+    <div id="content">
+      <div class="container">
+        <div class="crumbs">
+          <ul id="breadcrumbs" class="breadcrumb">
+            <li>
+              <i class="icon-home">
+              </i>
+              <a href="index.html">
+                后台首页
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="page-header">
+          <div class="page-title">
+            <h3>
+              设置权限
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="widget box">
+              <div class="widget-header">
+                <h4>
+                  <i class="icon-reorder">
+                  </i>
+                </h4>
+              </div>
+              <div class="widget-content">
+                <form class="form-horizontal row-border" action="" method="post">
+
+                  <input type="hidden" name="group_id" value="{:I('id')}">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <include file="Public/script" />
+</body>
+</html>

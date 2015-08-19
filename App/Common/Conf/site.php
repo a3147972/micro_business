@@ -1,6 +1,7 @@
 <?php
 return array (
   'site_title' => '111',
+  'site_url' => 'http://127.0.0.1/micro_business',
   'site_company' => '111',
   'site_phone' => '111',
   'site_address' => '1111',

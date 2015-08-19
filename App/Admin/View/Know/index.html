@@ -61,8 +61,9 @@
                         <th>
                           标题
                         </th>
+                        <th>访问URL</th>
                         <th>知识分类</th>
-                        <th>缩略图</th>
+                        <!-- <th>缩略图</th> -->
                         <th>
                           操作
                         </th>
@@ -77,8 +78,9 @@
                         <td>
                           {$vo.title}
                         </td>
+                        <td>{:U('Home/Know/content', array('id'=>$vo['id']), true, true)}</td>
                         <td>{$vo.class_name}</td>
-                        <td><img src="{$vo.thumb|imgFormat}" alt="" width="150"></td>
+                        <!-- <td><img src="{$vo.thumb|imgFormat}" alt="" width="150"></td> -->
 
                         <td>
                           <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>

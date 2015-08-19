@@ -100,8 +100,8 @@ class MenuController extends BaseController
             'appid' => C('APPID'), //填写高级调用功能的app id
             'appsecret' => C('APPSECRET'), //填写高级调用功能的密钥
         );
-        $wechat = new Wechat($$options);
-        $wechat->valid();
+        $wechat = new Wechat($options);
+        $wechat->valid(true);
 
         $create_result = $wechat->createMenu($list);
 
