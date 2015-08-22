@@ -123,6 +123,66 @@
                     </div>
                   </div>
                   <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    图片轮播一:
+                    </label>
+                    <div class="col-md-10">
+                      <img src="{:imgFormat(C('img1'))}" alt="" width="150" id="review-img1"><br>
+                      <br>
+                      <a href="" class="btn btn-inverse" onclick="document.all.tt1.click();return false;">上传图片</a>
+                      <input type="file" name="tt1" onchange="return AjaxUpload(this)" data-href="{:U('Public/UploadThumb')}" data-input="input-img1" data-thumb="review-img1" id="img1" style="display:none;">
+                      <input type="hidden" name="img1" id="input-img1" value="{:C('img1')}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    图片轮播二:
+                    </label>
+                    <div class="col-md-10">
+                      <img src="{:imgFormat(C('img2'))}" alt="" width="150" id="review-img2"><br>
+                      <br>
+                      <a href="" class="btn btn-inverse" onclick="document.all.tt2.click();return false;">上传图片</a>
+                      <input type="file" name="tt2" onchange="return AjaxUpload(this)" data-href="{:U('Public/UploadThumb')}" data-input="input-img2" data-thumb="review-img2" id="img2" style="display:none;">
+                      <input type="hidden" name="img2" id="input-img2" value="{:C('img2')}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    图片轮播三:
+                    </label>
+                    <div class="col-md-10">
+                      <img src="{:imgFormat(C('img3'))}" alt="" width="150" id="review-img3"><br>
+                      <br>
+                      <a href="" class="btn btn-inverse" onclick="document.all.tt3.click();return false;">上传图片</a>
+                      <input type="file" name="tt3" onchange="return AjaxUpload(this)" data-href="{:U('Public/UploadThumb')}" data-input="input-img3" data-thumb="review-img3" id="img3" style="display:none;">
+                      <input type="hidden" name="img3" id="input-img3" value="{:C('img3')}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    图片轮播四:
+                    </label>
+                    <div class="col-md-10">
+                      <img src="{:imgFormat(C('img4'))}" alt="" width="150" id="review-img4"><br>
+                      <br>
+                      <a href="" class="btn btn-inverse" onclick="document.all.tt4.click();return false;">上传图片</a>
+                      <input type="file" name="tt4" onchange="return AjaxUpload(this)" data-href="{:U('Public/UploadThumb')}" data-input="input-img4" data-thumb="review-img4" id="img4" style="display:none;">
+                      <input type="hidden" name="img4" id="input-img4" value="{:C('img4')}">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
+                    图片轮播五:
+                    </label>
+                    <div class="col-md-10">
+                      <img src="{:imgFormat(C('img5'))}" alt="" width="150" id="review-img5"><br>
+                      <br>
+                      <a href="" class="btn btn-inverse" onclick="document.all.tt5.click();return false;">上传图片</a>
+                      <input type="file" name="tt5" onchange="return AjaxUpload(this)" data-href="{:U('Public/UploadThumb')}" data-input="input-img5" data-thumb="review-img5" id="img5" style="display:none;">
+                      <input type="hidden" name="img5" id="input-img5" value="{:C('img5')}">
+                    </div>
+                  </div>
+                  <div class="form-group">
                     <div class="col-md-10">
                       <button class="btn btn-success" type="submit">
                         提交
