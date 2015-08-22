@@ -45,6 +45,9 @@ class AgentModel extends BaseModel
 
         $list = $this->_list($map, $field, $order, $page, $page_size);
 
+        if (empty($list)) {
+            return array();
+        }
         //查询代理分类
         $class_id = array_column($list, 'class_id');
         $class_map['id'] = array('in', $class_id);

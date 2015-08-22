@@ -83,7 +83,7 @@
                         </td>
                         <td>
                           <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>
-                          <a href="{:U('del',array('id'=>$vo['id']))}">删除</a>
+                          <a href="{:U('del',array('id'=>$vo['id']))}" onclick="return AjaxBtn(this)">删除</a>
                         </td>
                       </tr>
                       </volist>

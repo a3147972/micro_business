@@ -31,6 +31,7 @@ class AgentController extends BaseController
 
         //查询数据
         $list = $model->lists($map, $order, $page, $page_size);
+
         $count = $model->_count($map);
         //分页处理
         $page_list = $this->page($count, $page, $page_size);

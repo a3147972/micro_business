@@ -32,7 +32,7 @@ class KnowModel extends BaseModel
         $list = $this->_list($map, $field, $order);
 
         if (empty($list)) {
-            return $list;
+            return array();
         }
 
         //查询知识分类
@@ -43,6 +43,9 @@ class KnowModel extends BaseModel
 
         $class_list = D('KnowClass')->_list($class_map, $class_field);
 
+        if (empty($class_list)) {
+            return array();
+        }
         ArrayHelper::ArrayKeyReplace($class_list, 'id', 'class_id');
         ArrayHelper::ArrayKeyReplace($class_list, 'name', 'class_name');
         ArrayHelper::ArrayKeyReplace($class_list, 'thumb', 'class_thumb');
@@ -53,6 +56,7 @@ class KnowModel extends BaseModel
         foreach ($list as $_k => $_v) {
             $list[$_k] = array_merge($_v, $class_list[$_v['class_id']]);
         }
+
         return $list;
     }
 }

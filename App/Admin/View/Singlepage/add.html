@@ -28,9 +28,9 @@
           <div class="page-title">
             <h3>
             <eq name="action" value="add">
-              新增图文
+              新增单页
             <else />
-              编辑图文
+              编辑单页
             </eq>
             </h3>
           </div>
@@ -52,38 +52,18 @@
                 </eq>
                   <div class="form-group">
                     <label class="col-md-2 control-label">
-                    图文标题:
+                    标题:
                     </label>
                     <div class="col-md-10">
-                      <input type="text" name="title" class="form-control" placeholder="图文标题" value="{$vo.title}">
+                      <input type="text" name="title" class="form-control" placeholder="标题" value="{$vo.title}">
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-md-2 control-label">
-                    缩略图:
+                    内容:
                     </label>
                     <div class="col-md-10">
-                      <img src="{$vo.pic|imgFormat}" alt="" width="150" id="review-pic"><br>
-                      <br>
-                      <a href="" class="btn btn-inverse" onclick="document.all.tt.click();return false;">缩略图</a>
-                      <input type="file" name="tt" onchange="return AjaxUpload(this)" data-href="{:U('Public/UploadThumb')}" data-input="input-pic" data-thumb="review-pic" id="pic" style="display:none;">
-                      <input type="hidden" name="pic" id="input-pic" value="{$vo.pic}">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-2 control-label">
-                    访问URL:
-                    </label>
-                    <div class="col-md-10">
-                      <input type="text" name="url" class="form-control" placeholder="访问URL" value="{$vo.url}">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-2 control-label">
-                    描述:
-                    </label>
-                    <div class="col-md-10">
-                      <textarea rows="5" cols="5" name="desc" class="form-control">{$vo.desc}</textarea>
+                      <textarea rows="3" cols="5" name="content" id="editor1" editor >{$vo.content}</textarea>
                     </div>
                   </div>
                   <div class="form-group">
@@ -91,7 +71,6 @@
                       <eq name="action" value="edit">
                         <input type="hidden" name="id" value="{$vo.id}">
                       </eq>
-                      <input type="hidden" name="key_id" value="{$vo.key_id | default = I('key_id')}">
                       <button class="btn btn-success" type="submit">
                         提交
                       </button>

@@ -23,10 +23,29 @@ class GroupController extends BaseController
      */
     public function permission()
     {
-        $node_list = D('Node')->lists();
-        $node_list = ArrayHelper::array_tree($node_list);
+        $map['is_show'] = 1;
+        $node_list = D('Node')->lists($map, 'pid asc,id asc');
+        $node_list = ArrayHelper::array2_filter($node_list, 'is_show', 0);
+        $node_list = array_column($node_list, null, 'id');
 
-        $this->assign('node_list', $node_list);
+        $list = array();
+        foreach ($node_list as $_k => $_v) {
+            if (intval($_v['pid']) === 0) {
+                $list[$_k] = $_v;
+            } else {
+                $list[$_v['pid']]['child_list'][] = $_v;
+            }
+        }
+        $list = ArrayHelper::array_number_key($list);
+        // dump($list);exit();
+
+        // 查询拥有的权限
+        $has_map['group_id'] = I('id');
+        $has_node_list = D('GroupNodeMap')->_list($has_map, 'node_id');
+        $has_node_list = array_column($has_node_list, 'node_id');
+
+        $this->assign('node_list', $list);
+        $this->assign('has_node_list', $has_node_list);
         $this->display();
     }
 
@@ -69,7 +88,7 @@ class GroupController extends BaseController
         $map['group_id'] = $group_id;
         $map['node_id'] = $node_id;
 
-        $model = D('GroupNodeNap');
+        $model = D('GroupNodeMap');
 
         $del_result = $model->where($map)->delete();
 

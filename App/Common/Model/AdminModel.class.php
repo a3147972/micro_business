@@ -19,7 +19,7 @@ class AdminModel extends BaseModel
         array('username', 'require', '请输入用户名'),
         array('password', 'require', '请输入密码'),
         array('username', '', '用户名已存在', 1, 'unique'),
-        array('password', '6,16', '密码最短6位，最长16位', 'length'),
+        array('password', '6,16', '密码最短6位，最长16位', 1, 'length'),
     );
 
     //自动完成

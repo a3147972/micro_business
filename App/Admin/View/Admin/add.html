@@ -60,6 +60,20 @@
                   </div>
                   <div class="form-group">
                     <label class="col-md-2 control-label">
+                    所属组:
+                    </label>
+                    <div class="col-md-10">
+                      <select id="input17" class="select2-select-00 col-md-12 full-width-fix" name="group_id">
+                      <volist name="group_list" id="group_vo">
+                        <option value="{$group_vo.id}" <eq name="vo.group_vo" value="$group_vo['id']">selected="selected"</eq>>
+                        {$group_vo.name}
+                          </option>
+                      </volist>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
                     密码:
                     </label>
                     <div class="col-md-10">

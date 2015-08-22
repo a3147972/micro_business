@@ -11,7 +11,7 @@
  Target Server Version : 50624
  File Encoding         : utf-8
 
- Date: 08/19/2015 15:08:39 PM
+ Date: 08/22/2015 22:20:17 PM
 */
 
 SET NAMES utf8;
@@ -33,13 +33,13 @@ CREATE TABLE `think_admin` (
   `mtime` datetime NOT NULL,
   `nickname` varchar(64) DEFAULT NULL COMMENT '昵称',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='管理员表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='管理员表';
 
 -- ----------------------------
 --  Records of `think_admin`
 -- ----------------------------
 BEGIN;
-INSERT INTO `think_admin` VALUES ('1', '1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '超级管理员', '1', '10', '2015-08-15 14:59:20', '2015-08-15 14:59:22', '超级管理员');
+INSERT INTO `think_admin` VALUES ('1', '1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '超级管理员', '1', '10', '2015-08-15 14:59:20', '2015-08-15 14:59:22', '超级管理员'), ('2', '2', 'test', 'e10adc3949ba59abbe56e057f20f883e', '123', '2', '0', '2015-08-20 11:26:11', '2015-08-20 11:26:11', '123');
 COMMIT;
 
 -- ----------------------------
@@ -58,14 +58,7 @@ CREATE TABLE `think_agent` (
   `ctime` datetime NOT NULL,
   `mtime` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='代理商表';
-
--- ----------------------------
---  Records of `think_agent`
--- ----------------------------
-BEGIN;
-INSERT INTO `think_agent` VALUES ('2', '111', '111', '111', '111', '11', '2', '111', '2015-08-16 23:34:57', '2015-08-16 23:34:57'), ('3', '11', '111', '111', '11', '11', '3', '111111', '2015-08-17 09:00:01', '2015-08-17 09:00:01'), ('4', '张三', './Uploads/20150817/55d18f9b3b98b.jpg', '18210606014', '123123', '1231231', '3', '123123123', '2015-08-17 15:39:13', '2015-08-17 15:39:13');
-COMMIT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='代理商表';
 
 -- ----------------------------
 --  Table structure for `think_agent_application`
@@ -102,14 +95,7 @@ CREATE TABLE `think_agent_class` (
   `ctime` datetime NOT NULL,
   `mtime` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='代理等级表';
-
--- ----------------------------
---  Records of `think_agent_class`
--- ----------------------------
-BEGIN;
-INSERT INTO `think_agent_class` VALUES ('2', '天使代理', '100', '2015-08-16 11:44:28', '2015-08-16 11:54:06'), ('3', '普通代理', '50', '2015-08-16 12:12:14', '2015-08-16 12:12:14');
-COMMIT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='代理等级表';
 
 -- ----------------------------
 --  Table structure for `think_group`
@@ -122,13 +108,13 @@ CREATE TABLE `think_group` (
   `ctime` datetime NOT NULL,
   `mtime` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='管理组表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='管理组表';
 
 -- ----------------------------
 --  Records of `think_group`
 -- ----------------------------
 BEGIN;
-INSERT INTO `think_group` VALUES ('1', '超级管理组', '超级管理组', '2015-08-15 15:01:06', '2015-08-15 15:01:08');
+INSERT INTO `think_group` VALUES ('1', '超级管理组', '超级管理组', '2015-08-15 15:01:06', '2015-08-15 15:01:08'), ('2', '测试组', '测试组', '2015-08-20 11:22:57', '2015-08-20 11:22:57');
 COMMIT;
 
 -- ----------------------------
@@ -141,7 +127,14 @@ CREATE TABLE `think_group_node_map` (
   `node_id` int(11) NOT NULL,
   `ctime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='组权限关系对应表';
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='组权限关系对应表';
+
+-- ----------------------------
+--  Records of `think_group_node_map`
+-- ----------------------------
+BEGIN;
+INSERT INTO `think_group_node_map` VALUES ('1', '1', '1', null), ('7', '1', '10', null), ('8', '1', '27', null), ('9', '1', '2', null), ('10', '2', '1', null);
+COMMIT;
 
 -- ----------------------------
 --  Table structure for `think_keywords`
@@ -197,14 +190,7 @@ CREATE TABLE `think_know_class` (
   `ctime` datetime DEFAULT NULL,
   `mtime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='知识分类表';
-
--- ----------------------------
---  Records of `think_know_class`
--- ----------------------------
-BEGIN;
-INSERT INTO `think_know_class` VALUES ('1', '护肤知识', '111', '2015-08-17 09:07:01', '2015-08-17 09:07:01'), ('2', '化妆品知识', '222', '2015-08-17 09:07:43', '2015-08-17 09:07:43');
-COMMIT;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='知识分类表';
 
 -- ----------------------------
 --  Table structure for `think_lesson`
@@ -310,26 +296,33 @@ CREATE TABLE `think_node` (
   `ctime` datetime DEFAULT NULL,
   `mtime` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COMMENT='节点表';
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COMMENT='节点表';
 
 -- ----------------------------
 --  Records of `think_node`
 -- ----------------------------
 BEGIN;
-INSERT INTO `think_node` VALUES ('1', '0', '后台首页', 'Index/index', '1', '2015-08-15 15:37:06', '2015-08-15 15:37:07'), ('2', '0', '代理申请', 'AgentApplication/index', '1', '2015-08-15 15:37:44', '2015-08-15 15:37:46'), ('3', '0', '代理商信息', 'Agent/index', '1', '2015-08-15 15:38:25', '2015-08-15 15:38:26'), ('4', '0', '知识管理', 'Know/index', '1', '2015-08-15 15:38:47', '2015-08-15 15:38:48'), ('5', '0', '素材管理', 'Material/index', '1', '2015-08-15 15:39:17', '2015-08-15 15:39:18'), ('6', '0', '课程管理', 'Lesson/index', '1', '2015-08-15 15:39:35', '2015-08-15 15:39:37'), ('7', '0', '关键词管理', 'Keywords/index', '1', '2015-08-15 15:39:55', '2015-08-15 15:39:57'), ('8', '0', '自定义菜单', 'Menu/index', '1', '2015-08-15 15:41:16', '2015-08-15 15:41:18'), ('9', '0', '系统设置', 'System/index', '1', '2015-08-15 15:41:51', '2015-08-15 15:41:52'), ('10', '2', '代理类型管理', 'AgentClass/index', '1', '2015-08-15 15:43:11', '2015-08-15 15:43:12'), ('11', '4', '知识类型管理', 'KnowClass/index', '1', '2015-08-15 15:44:27', '2015-08-15 15:44:29'), ('12', '1', '代理审核', 'AgentApplication/check', '0', '2015-08-15 15:47:38', '2015-08-15 15:47:40'), ('13', '3', '新增代理商', 'Agent/add', '0', '2015-08-15 15:48:01', '2015-08-15 15:48:03'), ('14', '3', '编辑代理商', 'Agent/edit', '0', '2015-08-15 15:48:17', '2015-08-15 15:48:20'), ('15', '3', '删除代理商', 'Agent/del', '0', '2015-08-15 15:49:02', '2015-08-15 15:49:03'), ('16', '4', '新增知识', 'Know/add', '0', '2015-08-15 15:53:55', '2015-08-15 15:53:56'), ('17', '4', '编辑知识', 'Know/edit', '0', '2015-08-15 15:54:10', '2015-08-15 15:54:12'), ('18', '4', '删除知识', 'Know/del', '0', '2015-08-15 15:54:24', '2015-08-15 15:54:26'), ('19', '5', '新增素材', 'Material/add', '0', '2015-08-15 15:55:03', '2015-08-15 15:55:04'), ('20', '5', '编辑素材', 'Material/edit', '0', '2015-08-15 15:55:17', '2015-08-15 15:55:18'), ('21', '5', '删除素材', 'Material/del', '0', '2015-08-15 15:55:31', '2015-08-15 15:55:33'), ('22', '6', '新增课程', 'Lesson/add', '0', '2015-08-15 15:55:59', '2015-08-15 15:56:01'), ('23', '6', '编辑课程', 'Lesson/edit', '0', '2015-08-15 15:56:16', '2015-08-15 15:56:18'), ('24', '6', '删除课程', 'Lesson/del', '0', '2015-08-15 15:56:30', '2015-08-15 15:56:31'), ('25', '9', '管理员', 'Admin/index', '1', '2015-08-15 16:16:42', '2015-08-15 16:16:43'), ('26', '9', '管理组', 'Group/index', '1', '2015-08-15 16:16:55', '2015-08-15 16:16:56'), ('27', '2', '代理申请列表', 'AgentApplication/index', '1', '2015-08-15 16:33:32', '2015-08-15 16:33:34'), ('28', '4', '知识列表', 'Know/index', '1', '2015-08-15 16:33:57', '2015-08-15 16:33:58'), ('29', '9', '基本设置', 'System/index', '1', '2015-08-19 11:41:39', '2015-08-19 11:41:41');
+INSERT INTO `think_node` VALUES ('1', '0', '后台首页', 'Index/index', '1', '2015-08-15 15:37:06', '2015-08-15 15:37:07'), ('2', '0', '代理申请', 'AgentApplication/index', '1', '2015-08-15 15:37:44', '2015-08-15 15:37:46'), ('3', '0', '代理商信息', 'Agent/index', '1', '2015-08-15 15:38:25', '2015-08-15 15:38:26'), ('4', '0', '知识管理', 'Know/index', '1', '2015-08-15 15:38:47', '2015-08-15 15:38:48'), ('5', '0', '素材管理', 'Material/index', '1', '2015-08-15 15:39:17', '2015-08-15 15:39:18'), ('6', '0', '课程管理', 'Lesson/index', '1', '2015-08-15 15:39:35', '2015-08-15 15:39:37'), ('7', '0', '关键词管理', 'Keywords/index', '1', '2015-08-15 15:39:55', '2015-08-15 15:39:57'), ('8', '0', '自定义菜单', 'Menu/index', '1', '2015-08-15 15:41:16', '2015-08-15 15:41:18'), ('9', '0', '单页管理', 'Singlepage/index', '1', '2015-08-20 11:41:48', '2015-08-20 11:41:50'), ('10', '2', '代理类型管理', 'AgentClass/index', '1', '2015-08-15 15:43:11', '2015-08-15 15:43:12'), ('11', '4', '知识类型管理', 'KnowClass/index', '1', '2015-08-15 15:44:27', '2015-08-15 15:44:29'), ('12', '1', '代理审核', 'AgentApplication/check', '0', '2015-08-15 15:47:38', '2015-08-15 15:47:40'), ('13', '3', '新增代理商', 'Agent/add', '0', '2015-08-15 15:48:01', '2015-08-15 15:48:03'), ('14', '3', '编辑代理商', 'Agent/edit', '0', '2015-08-15 15:48:17', '2015-08-15 15:48:20'), ('15', '3', '删除代理商', 'Agent/del', '0', '2015-08-15 15:49:02', '2015-08-15 15:49:03'), ('16', '4', '新增知识', 'Know/add', '0', '2015-08-15 15:53:55', '2015-08-15 15:53:56'), ('17', '4', '编辑知识', 'Know/edit', '0', '2015-08-15 15:54:10', '2015-08-15 15:54:12'), ('18', '4', '删除知识', 'Know/del', '0', '2015-08-15 15:54:24', '2015-08-15 15:54:26'), ('19', '5', '新增素材', 'Material/add', '0', '2015-08-15 15:55:03', '2015-08-15 15:55:04'), ('20', '5', '编辑素材', 'Material/edit', '0', '2015-08-15 15:55:17', '2015-08-15 15:55:18'), ('21', '5', '删除素材', 'Material/del', '0', '2015-08-15 15:55:31', '2015-08-15 15:55:33'), ('22', '6', '新增课程', 'Lesson/add', '0', '2015-08-15 15:55:59', '2015-08-15 15:56:01'), ('23', '6', '编辑课程', 'Lesson/edit', '0', '2015-08-15 15:56:16', '2015-08-15 15:56:18'), ('24', '6', '删除课程', 'Lesson/del', '0', '2015-08-15 15:56:30', '2015-08-15 15:56:31'), ('25', '30', '基本设置', 'System/index', '1', '2015-08-19 11:41:39', '2015-08-19 11:41:41'), ('26', '30', '管理员', 'Admin/index', '1', '2015-08-15 16:16:42', '2015-08-15 16:16:43'), ('27', '2', '代理申请列表', 'AgentApplication/index', '1', '2015-08-15 16:33:32', '2015-08-15 16:33:34'), ('28', '4', '知识列表', 'Know/index', '1', '2015-08-15 16:33:57', '2015-08-15 16:33:58'), ('30', '0', '系统设置', 'System/index', '1', '2015-08-15 15:41:51', '2015-08-15 15:41:52'), ('31', '30', '管理组', 'Group/index', '1', '2015-08-15 16:16:55', '2015-08-15 16:16:56');
 COMMIT;
 
 -- ----------------------------
---  Table structure for `tihnk_singlepage`
+--  Table structure for `think_singlepage`
 -- ----------------------------
-DROP TABLE IF EXISTS `tihnk_singlepage`;
-CREATE TABLE `tihnk_singlepage` (
+DROP TABLE IF EXISTS `think_singlepage`;
+CREATE TABLE `think_singlepage` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL COMMENT '单页标题',
   `content` text NOT NULL COMMENT '单页内容',
   `ctime` datetime NOT NULL,
   `mtime` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='单页表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='单页表';
+
+-- ----------------------------
+--  Records of `think_singlepage`
+-- ----------------------------
+BEGIN;
+INSERT INTO `think_singlepage` VALUES ('2', '111', '&lt;p&gt;1111&lt;/p&gt;', '2015-08-20 12:06:05', '2015-08-20 12:06:05');
+COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

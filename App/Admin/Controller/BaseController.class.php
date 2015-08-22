@@ -21,14 +21,15 @@ class BaseController extends Controller
             $node_list = session('node_list');
             $node_list = array_column($node_list, 'node');
 
-            $check_result = array_search($node, $node_list);
+            $check_result = in_array($node, $node_list);
+
             if (empty($check_result)) {
                 redirect(U('Login/logout')); //没有权限直接退出
             }
         }
         //获取左侧菜单列表
         $menu_list = $this->menu();
-        // dump($menu_list);exit();
+
         $this->assign('menu_list', $menu_list);
     }
 
@@ -174,7 +175,6 @@ class BaseController extends Controller
         $node_list = session('node_list');
         $node_list = ArrayHelper::array2_filter($node_list, 'is_show', 0);
         $node_list = array_column($node_list, null, 'id');
-
         $list = array();
         foreach ($node_list as $_k => $_v) {
             if (intval($_v['pid']) === 0) {

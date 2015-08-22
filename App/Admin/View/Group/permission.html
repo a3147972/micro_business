@@ -42,7 +42,27 @@
               </div>
               <div class="widget-content">
                 <form class="form-horizontal row-border" action="" method="post">
-
+                <div class="form-group">
+                  <volist name="node_list" id="node_vo">
+                    <div class="col-md-10">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" class="uniform" value="{$node_vo.id}" onclick="permission(this)" <if condition="in_array($node_vo['id'], $has_node_list)">checked="checked"</if>>
+                                {$node_vo.name}
+                        </label>
+                      </div>
+                    <if condition="!empty($node_vo['child_list'])">
+                      <div class="col-md-10">
+                        <label class="checkbox-inline"></label>
+                        <volist name="node_vo.child_list" id="child_vo">
+                          <label class="checkbox-inline">
+                            <input type="checkbox" class="uniform" value="{$child_vo.id}" onclick="permission(this)" <if condition="in_array($child_vo['id'], $has_node_list)">checked="checked"</if>>
+                                  {$child_vo.name}
+                          </label>
+                        </volist>
+                      </div>
+                    </if>
+                  </volist>
+                </div>
                   <input type="hidden" name="group_id" value="{:I('id')}">
                 </form>
               </div>
@@ -53,5 +73,33 @@
     </div>
   </div>
   <include file="Public/script" />
+  <script>
+  function permission(dom){
+    var node_id = $(dom).val();
+    var group_id = $('input[name=group_id]').val();
+
+    if ($(dom).is(':checked')) {
+
+      var url = "{:U('add_permission')}";
+    } else {
+      var url = "{:U('del_permission')}";
+    }
+
+    var data = {'node_id':node_id, "group_id":group_id}
+
+    $.ajax({
+      url : url,
+      data:data,
+      type:'post',
+      dataType:'json',
+
+      success:function(i){
+        if (i.status == 0) {
+          alert(i.info);
+        }
+      }
+    })
+  }
+  </script>
 </body>
 </html>

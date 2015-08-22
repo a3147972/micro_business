@@ -36,7 +36,8 @@ class NodeModel extends BaseModel
     {
         if ($group_id == 1) {
             //超级管理员返回所有节点
-            $list = $this->lists(array(), 'id asc');
+            $list = $this->lists(array(), 'pid asc,id asc');
+
             return $list;
         }
         $map['group_id'] = $group_id;

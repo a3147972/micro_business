@@ -27,7 +27,7 @@
           <div class="page-header">
             <div class="page-title">
               <h3>
-                知识分类管理
+                单页文档管理
               </h3>
             </div>
           </div>
@@ -52,15 +52,17 @@
                   </div>
                 </div>
                 <div class="widget-content">
+
                   <table class="table table-hover table-bordered">
                     <thead>
                       <tr>
                         <th>
-                          分类id
+                          ID
                         </th>
                         <th>
-                          分类名称
+                          标题
                         </th>
+                        <th>创建时间</th>
                         <th>
                           操作
                         </th>
@@ -73,8 +75,9 @@
                           {$vo.id}
                         </td>
                         <td>
-                          {$vo.name}
+                          {$vo.title}
                         </td>
+                        <td>{$vo.ctime}</td>
                         <td>
                           <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>
                           <a href="{:U('del',array('id'=>$vo['id']))}" onclick="return AjaxBtn(this)">删除</a>
