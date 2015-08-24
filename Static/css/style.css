@@ -24,7 +24,7 @@ div.footer ul li img{
 }
 div.footer ul li p{
     color:#666;
-    font-size: 0.1em;
+    font-size: 12px;
     margin-top: 3px;
 }
 div.footer ul li p.footer_p_active{
