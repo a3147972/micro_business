@@ -8,7 +8,7 @@ return array (
   'site_beian' => 'Copyright@2008 - 2017 www.beijingfry.com 丰仁源 版权所有 .京ICP 备 11018981 号 -2',
   'site_wechat' => '1111',
   'WX_TOKEN' => '42af6Cp4',
-  'ENCODINGAESKEY' => '111',
+  'ENCODINGAESKEY' => 'HzIuRnmsjgnMwrFV12icmV2vODyJr1S1LGmVXcX7U0A',
   'APPID' => 'wxd8de9808fff4b68c',
   'APPSECRET' => '26684fabe65e591ffabe133df6452709',
   'WEIXIN_SUBSCRIBE' => '',

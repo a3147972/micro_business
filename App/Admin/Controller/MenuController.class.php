@@ -102,7 +102,7 @@ class MenuController extends BaseController
         );
         $wechat = new Wechat($options);
         $wechat->valid(true);
-
+        $list['button'] = $list;
         $create_result = $wechat->createMenu($list);
 
         if ($create_result) {
