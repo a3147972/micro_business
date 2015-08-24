@@ -7,7 +7,7 @@ function now()
 
 function imgFormat($path)
 {
-    $path = file_exists($path) ? (empty(__ROOT__) ? '' : __ROOT__) . '/' . ltrim($path, '.') : __ROOT__ . '/Public/assets/img/no-images.png';
+    $path = file_exists($path) ? (empty(__ROOT__) ? '' : __ROOT__. '/').ltrim($path, '.') : __ROOT__ . '/Public/assets/img/no-images.png';
 
     return $path;
 }
