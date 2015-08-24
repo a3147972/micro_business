@@ -1,0 +1,58 @@
+div.middle{
+    background:#f1f1f1;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+div.result{
+    width:1002px;
+    margin:0 auto;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #fff;
+    border:1px solid #ccc;
+}
+div.result ul{
+    margin-top: 20px;
+}
+div.result ul li{
+    width:428px;
+    float: left;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border:1px solid #ccc;
+    margin-right: 45px;
+    margin-bottom: 30px;
+}
+div.result ul li div.result_item div.item_title{
+    height:60px;
+    border-bottom: 1px solid #ccc;
+    padding-top: 17px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+div.result ul li div.result_item div.item_content div.item_avatar{
+    float: left;
+}
+div.result ul li div.result_item div.item_content div.item_avatar img{
+    width:144px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+div.result ul li div.result_item div.item_content{
+    margin-bottom: 10px;
+}
+div.result ul li div.result_item div.item_content div.item_info{
+    margin-left:164px;
+}
+div.result ul li div.result_item div.item_content div.item_info ul{
+    padding-left: 10px;
+    margin-top: 30px;
+}
+div.result ul li div.result_item div.item_content div.item_info ul li{
+    float:none;
+    border:0;
+    height:30px;
+    margin-bottom: 0px;
+}
