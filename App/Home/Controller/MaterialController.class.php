@@ -20,7 +20,8 @@ class MaterialController extends BaseController
         $map['id'] = $id;
 
         $info = D('Material')->_get($map);
-        $this->assign('info', $info);
+        $this->assign('vo', $info);
+        $this->assign('header_title', msubstr($info['title'], 0, 19));
         $this->display();
     }
 }

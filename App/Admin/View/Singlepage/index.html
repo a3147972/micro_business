@@ -62,6 +62,7 @@
                         <th>
                           标题
                         </th>
+                        <th>访问URL</th>
                         <th>创建时间</th>
                         <th>
                           操作
@@ -77,6 +78,7 @@
                         <td>
                           {$vo.title}
                         </td>
+                        <td>{:UR('Singlepage', 'index', array('id'=>$vo['id']))}</td>
                         <td>{$vo.ctime}</td>
                         <td>
                           <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>

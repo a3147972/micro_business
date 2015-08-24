@@ -23,9 +23,10 @@ class KnowController extends BaseController
     public function content()
     {
         $id = I('id');
-
         $map['id'] = $id;
         $info = D('Know')->_get($map);
+        $this->assign('vo', $info);
+        $this->assign('header_title', msubstr($info['title'], 0, 19));
         $this->display();
     }
 }

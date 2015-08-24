@@ -78,10 +78,8 @@
                         <td>
                           {$vo.title}
                         </td>
-                        <td>{:U('Home/Know/content', array('id'=>$vo['id']), true, true)}</td>
+                        <td>{:UR('Know','content', array('id'=>$vo['id']))}</td>
                         <td>{$vo.class_name}</td>
-                        <!-- <td><img src="{$vo.thumb|imgFormat}" alt="" width="150"></td> -->
-
                         <td>
                           <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>
                           <a href="{:U('del',array('id'=>$vo['id']))}" onclick="return AjaxBtn(this)">删除</a>

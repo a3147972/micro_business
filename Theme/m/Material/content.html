@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{$vo.title}</title>
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/know.css">
+</head>
+<body>
+    <include file="Public/header" />
+    <div class="content">
+        <div class="title">
+        {$vo.title}
+        <p>2015/08/21{:date(strtotime($vo['ctime']), 'Y/m/d')}</p></div>
+        <div class="content_content">
+            {:htmlspecialchars_decode($vo['text'])}
+        </div>
+    </div>
+    <!-- footer -->
+    <include file="Public/footer" />
+    <!-- /footer -->
+<script src="__PUBLIC__/GMU/dist/zepto.js"></script>
+</body>
+</html>

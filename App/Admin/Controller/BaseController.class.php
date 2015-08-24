@@ -29,7 +29,9 @@ class BaseController extends Controller
         }
         //获取左侧菜单列表
         $menu_list = $this->menu();
-
+        $domain = $_SERVER['HTTP_HOST'];
+        $domain_url = (is_ssl() ? 'https://' : 'http://') . $domain.__APP__.'/index.php?';
+        $this->assign('domain_url', $domain_url);
         $this->assign('menu_list', $menu_list);
     }
 

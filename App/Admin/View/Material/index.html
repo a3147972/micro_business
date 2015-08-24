@@ -55,7 +55,7 @@
                 <div class="alert alert-info fade in">
                     <i class="icon-remove close" data-dismiss="alert">
                     </i>
-                    列表地址：{:U('Home/Material/index', '', true, true)}
+                    列表地址：{:UR('Material')}
                   </div>
                   <table class="table table-hover table-bordered">
                     <thead>
@@ -84,7 +84,8 @@
                         <td>
                           {$vo.title}
                         </td>
-                        <td>{:U('Home/Material/content', array('id'=>$vo['id']), true, true)}</td>
+                        <td>
+                        {:UR('Material', 'content', array('id'=>$vo['id']))}</td>
                         <td>{$vo.ctime}</td>
                         <td>
                           <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>

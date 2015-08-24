@@ -51,6 +51,9 @@ div.content{
     padding-right: 10px;
     margin-bottom: 49px;
 }
+div.content img{
+    width:100%;
+}
 div.content div.title{
     margin-bottom: 10px;
     color:#666;
