@@ -102,8 +102,8 @@ class MenuController extends BaseController
         );
         $wechat = new Wechat($options);
         $wechat->valid(true);
-        $list['button'] = $list;
-        $create_result = $wechat->createMenu($list);
+        $lists['button'] = $list;
+        $create_result = $wechat->createMenu($lists);
 
         if ($create_result) {
             $this->success('创建成功,24小时内生效');
