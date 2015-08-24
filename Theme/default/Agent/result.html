@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>授权查询</title>
+    <link rel="stylesheet" href="__STYLE__/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="__STYLE__/css/swiper.min.css" />
+    <link rel="stylesheet" href="__STYLE__/css/style.css" />
+    <link rel="stylesheet" href="__STYLE__/css/search.css" />
+</head>
+<body>
+    <!-- header -->
+    <include file="Public/header" />
+    <!-- /header -->
+    <div class="middle">
+        <div class="result">
+            <ul class="clearfix">
+                <volist name="list" id="vo">
+                <li>
+                    <div class="result_item">
+                        <div class="item_title">
+                            <img src="__STYLE__/img/result_logo" alt="" />
+                        </div>
+                        <div class="item_content clearfix">
+                            <div class="item_avatar">
+                                <img src="{$vo.avatar}" alt="" />
+                            </div>
+                            <div class="item_info">
+                                <ul>
+                                    <li>姓名：{$vo.name}</li>
+                                    <li>手机号：{$vo.mobile}</li>
+                                    <li>微信号：{$vo.wechat_number}</li>
+                                    <li>代理等级：{$vo.class_name}</li>
+                                    <li>授权编码：{$vo.authorize_code}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <include file="Public/footer" />
+    <script src="__STYLE__/js/jquery.min.js"></script>
+    <script src="__STYLE__/js/swiper.min.js"></script>
+    <script type="text/javascript">
+      var mySwiper = new Swiper('.swiper-container',{
+        loop: true,
+        autoplay: 3000,
+      });
+      $(function(){
+        $('div.search form input[type=text]').bind({
+            focus:function(){
+                if (this.value == this.defaultValue){
+                    this.value="";
+                }
+            },
+            blur:function(){
+                if (this.value == ""){
+                    this.value = this.defaultValue;
+                }
+            }
+        });
+      })
+    </script>
+</body>
+</html>

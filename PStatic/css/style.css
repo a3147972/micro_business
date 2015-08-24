@@ -1,0 +1,74 @@
+ul li{list-style: none}
+a:hover{text-decoration: none;}
+div.header{
+    height:60px;
+    background: #2cc8ff;
+}
+div.header div.header-midden{
+    width:1002px;
+    margin:0 auto;
+}
+div.header div.nav{
+    float: left;
+}
+div.header div.nav ul{
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+div.header div.nav ul li{
+    float: left;
+    width:120px;
+    text-align: center;
+    line-height: 60px;
+    height: 100%;
+}
+div.header div.nav ul li a{
+    color:#fff;
+    font-size: 16px;
+    font-family: '微软雅黑';
+}
+div.header div.nav ul li:hover{
+    background: #28acdd;
+    height: 60px;
+}
+div.header div.search{
+    margin-left: 610px;
+    line-height: 60px;
+}
+div.header div.search div.form-control{
+    padding: 0px;
+    color: #fff;
+    background-color:#fff;
+    border:none;
+    border-radius:0;
+    background-image:none;
+    height:30px;
+}
+div.header div.search form input{
+    margin:0;
+    padding:0px;
+}
+div.header div.search form input[type=text]{
+    height:30px;
+    border:none;
+    border:1px solid #ccc;
+    width: 200px;
+    color:#ccc;
+}
+div.header div.search form input[type=submit]{
+    height:30px;
+    background:url('../img/search_submit_btn.png') no-repeat;
+    background-size: 60px 30px;
+    width:60px;
+    border:none;
+}
+
+div.banner{width:100%;}
+
+div.footer{margin-top: 40px;margin-bottom: 40px;}
+div.footer p{
+    font-family: "微软雅黑";
+    font-size: 14px;
+    color:#666;
+    text-align: center;
+}

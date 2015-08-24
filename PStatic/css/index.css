@@ -1,0 +1,24 @@
+div.know{
+    background: #fff;
+    margin-top: 40px;
+}
+div.middle_title p{
+    text-align: center;
+    font-size: 40px;
+    color:#666;
+    font-family: "微软雅黑";
+    margin-bottom: 0px;
+}
+div.middle_title p.english_title{
+    font-size: 16px;
+    font-family: "Arial";
+    color:#999;
+    margin-top: 0px;
+}
+div.know div.know_content{width:1022px;margin:0 auto;margin-bottom: 50px;}
+div.know div.know_content ul li{float: left;width:235px;}
+div.line{
+    height:40px;
+    background:#f1f1f1;
+}
+

@@ -22,6 +22,7 @@ define('APP_DEBUG', true);
 // 定义应用目录
 define('APP_PATH', './App/');
 define('STATIC_PATH', './Static');
+define('PC_STATIC_PATH', './PStatic');
 
 // 引入ThinkPHP入口文件
 require './ThinkPHP/ThinkPHP.php';

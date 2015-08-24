@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>知识介绍</title>
+    <link rel="stylesheet" href="__STYLE__/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="__STYLE__/css/swiper.min.css" />
+    <link rel="stylesheet" href="__STYLE__/css/style.css" />
+    <link rel="stylesheet" href="__STYLE__/css/know.css" />
+</head>
+<body>
+    <!-- header -->
+    <include file="Public/header"/>
+    </div>
+    <!-- /header -->
+    <div class="middle">
+        <div class="list">
+            <ul class="clearfix">
+                <volist name="list" id="vo">
+                <li>
+                    <div class="list_item">
+                        <div class="item_thumb">
+                            <a href="{:U('Know/content', array('id'=>$vo['id']))}"><img src="{$vo.thumb}" alt="" width="100%"/></a>
+                        </div>
+                        <div class="item_content">
+                            <div class="item_title"><a href="">{$vo.title}</a></div>
+                            <div class="item_time">{$vo.ctime}</div>
+                            <div class="item_desc">
+                                {:msubstr(strip_tags(htmlspecialchars_decode($vo['content'])),0,40)}
+                                <a href="{:U('Know/content', array('id'=>$vo['id']))}" class="read">阅读</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <include file="Public/footer" />
+    <script src="__STYLE__/js/jquery.min.js"></script>
+    <script src="__STYLE__/js/swiper.min.js"></script>
+    <script type="text/javascript">
+      var mySwiper = new Swiper('.swiper-container',{
+        loop: true,
+        autoplay: 3000,
+      });
+      $(function(){
+        $('div.search form input[type=text]').bind({
+            focus:function(){
+                if (this.value == this.defaultValue){
+                    this.value="";
+                }
+            },
+            blur:function(){
+                if (this.value == ""){
+                    this.value = this.defaultValue;
+                }
+            }
+        });
+      })
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+div.middle{
+    background:#f1f1f1;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+div.list{
+    width:1002px;
+    margin:0 auto;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #fff;
+    border:1px solid #ccc;
+}
+
+div.list ul{
+    padding-right: 40px;
+}
+div.list ul li{
+    border-bottom:1px solid #ccc;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+div.list ul li div.thumb{
+    float: left;
+    width:180px;
+}
+div.list ul li div.content{
+    margin-left: 190px;
+}
+div.list ul li div.content div.title{
+    margin-bottom: 5px;
+}
+div.list ul li div.content div.title a{
+    font-size: 18px;
+    font-family: "微软雅黑";
+    color:#333;
+}
+div.list ul li div.content div.desc{
+    font-size: 16px;
+    font-family: "微软雅黑";
+    color:#999;
+    margin-bottom: 10px;
+}
+div.list ul li div.content div.time{
+    font-size: 16px;
+    font-family: "微软雅黑";
+    color:#999;
+}

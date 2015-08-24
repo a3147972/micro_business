@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>课程讲座</title>
+    <link rel="stylesheet" href="__STYLE__/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="__STYLE__/css/swiper.min.css" />
+    <link rel="stylesheet" href="__STYLE__/css/style.css" />
+    <link rel="stylesheet" href="__STYLE__/css/lesson.css" />
+</head>
+<body>
+    <!-- header -->
+    <include file="Public/header" />
+    <!-- /header -->
+    <div class="middle">
+        <div class="list">
+            <ul>
+                <volist name="list" id="vo">
+                <li class="clearfix">
+                    <div class="title">{$vo.title}</div>
+                    <div class="content">
+                        <ul>
+                            <li> <div class="content_time">时间：{$vo.start_time}</div> </li>
+                            <li> <div class="content_speaker" style="height:100%">
+                                <p style="float:left;">主讲人：{$vo.speaker}</p>
+                                <p style="float:right;">课程类型：{$vo.type}</p>
+                            </div>
+                            <li>
+                            <div class="content_desc" style="height:100%;line-height:20px">
+                            <div class="clear" style="clear:both"></div>
+                            {:htmlspecialchars_decode($vo['desc'])}</div></li>
+                            <li style="border:0"> <div class="content_status">
+                            <eq name="vo.status" value="0">
+                                <p class="active">未开始</p>
+                            </eq>
+                            <eq name="vo.status" value="1">
+                                <p>正在进行</p>
+                            </eq>
+                            <eq name="vo.status" value="-1">
+                                <p>已结束</p>
+                            </eq>
+                        </ul>
+                    </div>
+                </li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <include file="Public/footer" />
+    <script src="__STYLE__/js/jquery.min.js"></script>
+    <script src="__STYLE__/js/swiper.min.js"></script>
+    <script type="text/javascript">
+      var mySwiper = new Swiper('.swiper-container',{
+        loop: true,
+        autoplay: 3000,
+      });
+      $(function(){
+        $('div.search form input[type=text]').bind({
+            focus:function(){
+                if (this.value == this.defaultValue){
+                    this.value="";
+                }
+            },
+            blur:function(){
+                if (this.value == ""){
+                    this.value = this.defaultValue;
+                }
+            }
+        });
+      })
+    </script>
+</body>
+</html>

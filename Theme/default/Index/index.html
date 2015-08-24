@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>{:C('site_title')}</title>
+    <link rel="stylesheet" href="__STYLE__/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="__STYLE__/css/swiper.min.css" />
+    <link rel="stylesheet" href="__STYLE__/css/style.css" />
+    <link rel="stylesheet" href="__STYLE__/css/index.css" />
+</head>
+<body>
+    <!-- header -->
+    <include file="Public/header" />
+    <!-- /header -->
+    <div class="middle">
+        <div class="know">
+            <div class="middle_title">
+                <p><a href="">知识介绍</a></p>
+                <p class="english_title">Knowledge Introduction</p>
+            </div>
+            <div class="know_content">
+                <ul class="clearfix">
+                    <volist name="know_class_list" id="know_class_vo">
+                    <li style="margin-right: 10px;"> <a href="{:U('Know/index', array('class_id'=>$know_class_vo['id']))}"><img src="{$know_class_vo.thumb}" alt="" width="100%"/></a></li>
+                    </volist>
+                </ul>
+            </div>
+        </div>
+        <div class="lesson">
+            <div class="middle_title" style="background:#f1f1f1;padding-bottom: 20px;padding-top: 20px;">
+                <p><a href="">课程培训</a></p>
+                <p class="english_title">Course Training</p>
+            </div>
+            <div class="lesson_content">
+                <img src="__STYLE__/img/lesson_bg.png" alt="" width="100%"/>
+            </div>
+        </div>
+    </div>
+    <div class="line"></div>
+    <include file="Public/footer" />
+    <script src="__STYLE__/js/jquery.min.js"></script>
+    <script src="__STYLE__/js/swiper.min.js"></script>
+    <script type="text/javascript">
+      var mySwiper = new Swiper('.swiper-container',{
+        loop: true,
+        autoplay: 3000,
+      });
+      $(function(){
+        $('div.search form input[type=text]').bind({
+            focus:function(){
+                if (this.value == this.defaultValue){
+                    this.value="";
+                }
+            },
+            blur:function(){
+                if (this.value == ""){
+                    this.value = this.defaultValue;
+                }
+            }
+        });
+      })
+    </script>
+</body>
+</html>

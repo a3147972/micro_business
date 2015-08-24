@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>代理申请</title>
+    <link rel="stylesheet" href="__STYLE__/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="__STYLE__/css/swiper.min.css" />
+    <link rel="stylesheet" href="__STYLE__/css/style.css" />
+    <link rel="stylesheet" href="__STYLE__/css/shenqing.css" />
+</head>
+<body>
+    <!-- header -->
+    <include file="Public/header" />
+    <!-- /header -->
+    <div class="middle">
+        <div class="application">
+            <div class="remark">
+                <i class="shenqing_icon"><img src="__PUBLIC__/img/shenqing_remark_icon.png" alt=""></i>说明：本页面为无意向上级代理的申请，填写资料后我们会根据您的情况为您分配上级和大区，若您已有想加的代理或团队，请您退出本页面并联系该代理，然后从该代理的推荐连接进入填写授权页面。如有问题请直接回复公众账号！
+            </div>
+            <div class="form">
+                <form action="{:U('insert')}" method="post">
+                <ul>
+                    <li><input type="text" name="name" id="" value="      姓名" class="no_border_bottom"/></li>
+                    <li><input type="text" name="mobile" id="" value="      手机号" class="no_border_bottom"/></li>
+                    <li><input type="text" name="wechat_number" id="" value="      微信"/></li>
+                </ul>
+                <ul>
+                    <li><input type="text" name="recommend" id="" value="      推荐人" class="no_border_bottom"/></li>
+                    <li><input type="text" name="work_date" id="" value="      从事微商时间" class="no_border_bottom"/></li>
+                    <li><input type="text" name="month_sale" id="" value="      月销售额" class="no_border_bottom"/></li>
+                    <li><input type="text" name="brand" id="" value="      品牌" class="no_border_bottom"/></li>
+                    <li><input type="text" name="reason" id="" value="      申请理由"/></li>
+                </ul>
+
+                <ul>
+                    <li>
+                        <select id="s_province" name="province" class="js-example-data-array form-control">
+                        </select>
+                    </li>
+                    <li>
+                        <select id="s_city" name="city" class="js-example-data-array form-control">
+                        </select>
+                    </li>
+                    <li>
+                        <select id="s_county" name="county" class="js-example-data-array form-control">
+                        </select>
+                    </li>
+                    <li><select name="source" id="" class="js-example-data-array form-control">
+                            <option value="0">选择推荐来源</option>
+                            <option value="1">朋友</option>
+                            <option value="2">报纸</option>
+                            <option value="3">电视</option>
+                            <option value="4">互联网</option>
+                            <option value="5">其他</option>
+                        </select></li>
+                    <li>
+                        <select name="class_id" id="" class="js-example-data-array form-control">
+                            <volist name="class_list" id="class_vo">
+                                <option value="{$class_vo.id}">{$class_vo.name}</option>
+                            </volist>
+                        </select>
+                    </li>
+                </ul>
+                <div class="submit_btn">
+                    <input type="submit" value="" />
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <include file="Public/footer" />
+    <script src="__STYLE__/js/jquery.min.js"></script>
+    <script src="__STYLE__/js/swiper.min.js"></script>
+    <script src="__STYLE__/js/area.js"></script>
+    <script type="text/javascript">
+      var mySwiper = new Swiper('.swiper-container',{
+        loop: true,
+        autoplay: 3000,
+      });
+      _init_area();
+    var Gid  = document.getElementById ;
+    var showArea = function(){
+        Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+        Gid('s_city').value + " - 县/区" +
+        Gid('s_county').value + "</h3>"
+
+        Gid('s_county').setAttribute('onchange','showArea()');
+    }
+      $(function(){
+        $('div.form form input[type=text]').bind({
+            focus:function(){
+                if (this.value == this.defaultValue){
+                    this.value="";
+                }
+            },
+            blur:function(){
+                if (this.value == ""){
+                    this.value = this.defaultValue;
+                }
+            }
+        });
+
+        $('form').submit(function(){
+            var url = $(this).attr('action');
+            var data = $(this).serialize();
+
+            $.ajax({
+                url:url,
+                data:data,
+                type:'post',
+                dataType:'json',
+                success:function(i){
+                    alert(i.info);
+                }
+            })
+            return false;
+        })
+
+        $('div.search form input[type=text]').bind({
+            focus:function(){
+                if (this.value == this.defaultValue){
+                    this.value="";
+                }
+            },
+            blur:function(){
+                if (this.value == ""){
+                    this.value = this.defaultValue;
+                }
+            }
+        });
+      })
+    </script>
+</body>
+</html>

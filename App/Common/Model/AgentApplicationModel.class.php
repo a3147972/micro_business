@@ -7,6 +7,7 @@
 namespace Common\Model;
 
 use Common\Model\BaseModel;
+use Common\Tools\ArrayHelper;
 
 class AgentApplicationModel extends BaseModel
 {
@@ -31,23 +32,48 @@ class AgentApplicationModel extends BaseModel
 
     protected function validate_province($v)
     {
-        if ($v == '省份') {
+        if (trim($v) == '省份') {
             return false;
         }
         return true;
     }
     protected function validate_city($v)
     {
-        if ($v == '地级市') {
+        if (trim($v) == '地级市') {
             return false;
         }
         return true;
     }
     protected function validate_county($v)
     {
-        if ($v == '市、县级市') {
+        if (trim($v) == '市、县级市') {
             return false;
         }
         return true;
+    }
+
+    public function lists($map = array(), $order = '', $page = 1, $page_size = 10)
+    {
+        $field = 'id,class_id,name,mobile,wechat_number,recommend,work_date,month_sale,brand,reason,province,city,source,is_approve';
+        $list = $this->_list($map, $field, $order, $page, $page_size);
+
+        if (empty($list)) {
+            return array();
+        }
+
+        //查询代理分类
+        $class_id = array_column($list, 'class_id');
+        $class_map['id'] = array('in', $class_id);
+        $class_field = 'id,name,price';
+
+        $class_list = D('AgentClass')->_list($class_map, $class_field);
+        ArrayHelper::ArrayKeyReplace($class_list, 'id', 'class_id');
+        ArrayHelper::ArrayKeyReplace($class_list, 'name', 'class_name');
+        $class_list = array_column($class_list, null, 'class_id');
+        foreach ($list as $_k => $_v) {
+            $list[$_k] = array_merge($_v, $class_list[$_v['class_id']]);
+        }
+
+        return $list;
     }
 }

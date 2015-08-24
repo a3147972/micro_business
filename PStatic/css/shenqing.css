@@ -1,0 +1,63 @@
+div.middle{background:#f1f1f1;}
+div.middle div.application{
+    width:1002px;
+    margin:0 auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+div.middle div.application div.remark{
+    padding:20px;
+    color:#999;
+    font-family: "微软雅黑";
+    font-size: 16px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #fff;
+}
+div.middle div.application div.remark i.shenqing_icon img{
+    width: 26px;
+}
+div.middle div.application div.form{
+    margin-top: 20px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #fff;
+    border:1px solid #ccc;
+}
+div.middle div.application div.form form{
+    margin-top: 30px;
+}
+div.middle div.application div.form form ul{
+    padding-left:40px;
+    padding-right: 40px;
+    margin-top: 20px;
+}
+div.middle div.application div.form form input[type=text]{
+    height:44px;
+    width:100%;
+    color:#ccc;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    border:1px solid #bbb;
+}
+div.middle div.application div.form form select{
+    margin-bottom: 10px;
+}
+div.middle div.application div.form form input.no_border_bottom{
+    border-bottom: 0;
+}
+div.middle div.application div.form form div.submit_btn{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+div.middle div.application div.form form div.submit_btn input[type="submit"]{
+    background: url('../img/submit_btn.png') no-repeat;
+    background-size: 400px 44px;
+    border:0;
+    width:400px;
+    height:44px;
+}

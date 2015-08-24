@@ -1,0 +1,39 @@
+div.middle{
+    background:#f1f1f1;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+div.list{
+    width:1002px;
+    margin:0 auto;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #fff;
+    border:1px solid #ccc;
+}
+div.list ul{
+    padding-right: 40px;
+    margin-top: 20px;
+}
+div.list ul li div.title{
+    font-size: 22px;
+    color:#333;
+    margin-bottom: 10px;
+}
+div.list ul li {
+    margin-bottom: 20px;
+}
+div.list ul li div.content{
+    border:1px solid #ccc;
+}
+div.list ul li div.content ul{
+    margin-top: 0px;
+}
+div.list ul li div.content ul li{
+    border-bottom: 1px solid #ccc;
+    height:40px;
+    line-height: 40px;
+    margin-bottom: 0px;
+}
+div.list ul li div.content ul li div.content_status p.active{color:#2cc8ff;}

@@ -13,7 +13,7 @@
     <div class="content">
         <div class="title">
         {$vo.title}
-        <p>2015/08/21{:date(strtotime($vo['ctime']), 'Y/m/d')}</p></div>
+        <p>{:date(strtotime($vo['ctime']), 'Y/m/d')}</p></div>
         <div class="content_content">
             {:htmlspecialchars_decode($vo['content'])}
         </div>

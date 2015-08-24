@@ -72,6 +72,11 @@
                         <th>微信号</th>
                         <th>从事微商时间</th>
                         <th>月销售额</th>
+                        <th>品牌</th>
+                        <th>省份</th>
+                        <th>市区</th>
+                        <th>区/县</th>
+                        <th>推荐来源</th>
                         <th>状态</th>
                         <th>
                           操作
@@ -94,6 +99,19 @@
                         <td>{$vo.wechat_number}</td>
                         <td>{$vo.work_date}</td>
                         <td>{$vo.month_sale}</td>
+                        <td>{$vo.brand}</td>
+                        <td>{$vo.province}</td>
+                        <td>{$vo.city}</td>
+                        <td>{$vo.county}</td>
+                        <td>
+                          <switch name="vo.source">
+                            <case value="1">朋友</case>
+                            <case value="2">报纸</case>
+                            <case value="3">电视</case>
+                            <case value="4">互联网</case>
+                            <case value="5">其他</case>
+                          </switch>
+                        </td>
                         <td>
                           <switch name="vo.is_approve">
                             <case value="1">

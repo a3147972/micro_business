@@ -1,0 +1,42 @@
+<div class="header">
+        <div class="header-midden clearfix">
+            <div class="nav">
+            <ul class="clearfix">
+                <li> <a href="{:U('/')}">首页</a></li>
+                <li> <a href="{:U('Know/index')}">知识介绍</a></li>
+                <li> <a href="{:U('Lesson/index')}">课程列表</a></li>
+                <li> <a href="{:U('AgentApplication/index')}">申请代理</a></li>
+                <li> <a href="{:U('Singlepage/index', array('id'=>1))}">关于我们</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <form action="{:U('Agent/result')}" class="form-inline" method="post">
+                <div class="form-control">
+                    <label for="k"></label><input type="text" name="k" id="" value="      授权查询"/>
+                </div>
+                <div class="form-control" style="margin-left:-10px">
+                    <input type="submit" value=""/>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    <div class="banner swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href=""><img src="{:C('img1')}" alt="" width="100%"></a>
+            </div>
+            <div class="swiper-slide">
+                <a href=""><img src="{:C('img2')}" alt="" width="100%"></a>
+            </div>
+            <div class="swiper-slide">
+                <a href=""><img src="{:C('img3')}" alt="" width="100%"></a>
+            </div>
+            <div class="swiper-slide">
+                <a href=""><img src="{:C('img4')}" alt="" width="100%"></a>
+            </div>
+            <div class="swiper-slide">
+                <a href=""><img src="{:C('img5')}" alt="" width="100%"></a>
+            </div>
+        </div>
+    </div>
