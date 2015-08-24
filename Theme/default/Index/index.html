@@ -20,7 +20,7 @@
             </div>
             <div class="know_content">
                 <ul class="clearfix">
-                    <volist name="know_class_list" id="know_class_vo" length='4'>
+                    <volist name="know_class_list" id="know_class_vo" offset="0" length="4">
                     <li style="margin-right: 10px;"> <a href="{:U('Know/index', array('class_id'=>$know_class_vo['id']))}"><img src="{$know_class_vo.thumb}" alt="" width="100%"/></a></li>
                     </volist>
                 </ul>
