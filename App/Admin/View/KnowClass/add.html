@@ -63,7 +63,11 @@
                     缩略图:
                     </label>
                     <div class="col-md-10">
-                      <input type="text" name="thumb" class="form-control" placeholder="缩略图" value="{$vo.thumb}">
+                      <img src="{$vo.thumb|imgFormat}" alt="" width="150" id="review-thumb"><br>
+                      <br>
+                      <a href="" class="btn btn-inverse" onclick="document.all.tt.click();return false;">上传图片</a>
+                      <input type="file" name="tt" onchange="return AjaxUpload(this)" data-href="{:U('Public/UploadThumb')}" data-input="input-thumb" data-thumb="review-thumb" id="thumb" style="display:none;">
+                      <input type="hidden" name="thumb" id="input-thumb" value="{$vo.thumb}">
                     </div>
                   </div>
                   <div class="form-group">

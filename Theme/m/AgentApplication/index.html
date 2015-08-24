@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>代理申请</title>
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/shenqing.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/GMU/assets/reset.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/GMU/assets/widget/dialog/dialog.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/GMU/assets/widget/dialog/dialog.iOS7.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/GMU/assets/widget/button/button.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/GMU/assets/widget/button/button.default.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/GMU/examples/assets/dialog_demo.css"/>
+    <style>
+        select{color:#999;}
+    </style>
+</head>
+<body>
+    <include file="Public/header" />
+    <div class="shenqing">
+        <div class="shenqing_remark">
+            <i class="shenqing_icon"><img src="__PUBLIC__/img/shenqing_remark_icon.png" alt="" style="height:20px;vertical-align: middle;"></i>说明：本页面为无意向上级代理的申请，填写资料后我们会根据您的情况为您分配上级和大区，若您已有想加的代理或团队，请您退出本页面并联系该代理，然后从该代理的推荐连接进入填写授权页面。如有问题请直接回复公众账号！
+        </div>
+        <form action="{:U('insert')}" method="post">
+            <ul>
+                <li><input type="text" name="name" id="" placeholder="    姓名" class="border_bottom_none"></li>
+                <li><input type="text" name="mobile" id="" placeholder="    手机号" class="border_bottom_none"></li>
+                <li><input type="text" name="wechat_number" id="" placeholder="    微信"></li>
+            </ul>
+            <ul>
+                <li><input type="text" name="recommend" id="" placeholder="    推荐人" class="border_bottom_none"></li>
+                <li><input type="text" name="work_date" id="" placeholder="    从事微商时间" class="border_bottom_none"></li>
+                <li><input type="text" name="month_sale" id="" placeholder="    月销售额" class="border_bottom_none"></li>
+                <li><input type="text" name="brand" id="" placeholder="    品牌" class="border_bottom_none"></li>
+                <li><input type="text" name="reason" id="" placeholder="    申请理由"></li>
+            </ul>
+            <ul>
+                <li>
+                    <select id="s_province" name="province" style="border_bottom_none"></select>
+                </li>
+                <li>
+                    <select id="s_city" name="city" style="border_bottom_none"></select>
+                </li>
+                 <li>
+                    <select id="s_county" name="county" style="border_bottom_none"></select>
+                </li>
+                <li><select name="source">
+                    <option value="0">选择推荐来源</option>
+                    <option value="1">朋友</option>
+                    <option value="2">报纸</option>
+                    <option value="3">电视</option>
+                    <option value="4">互联网</option>
+                    <option value="5">其他</option>
+                </select></li>
+                <li>
+                    <select name="class_id" id="" placeholder="代理等级">
+                        <volist name="class_list" id="class_vo">
+                            <option value="{$class_vo.id}">{$class_vo.name}</option>
+                        </volist>
+                    </select>
+                </li>
+            </ul>
+            <div class="submit-btn">
+                <input type="submit" value="" class="shenqing_submit">
+            </div>
+        </form>
+    </div>
+    <div id="dialog1" title="登陆提示">
+        <p>11111</p>
+    </div>
+
+    <include file="Public/footer" />
+<script src="__PUBLIC__/GMU/dist/zepto.js"></script>
+<script src="__PUBLIC__/js/area.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/extend/highlight.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/GMU/src/extend/parseTpl.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/GMU/src/core/gmu.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/GMU/src/core/event.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/GMU/src/core/widget.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/GMU/src/widget/dialog/dialog.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/GMU/src/widget/dialog/$position.js"></script>
+<script>
+    _init_area();
+    var Gid  = document.getElementById ;
+    var showArea = function(){
+        Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+        Gid('s_city').value + " - 县/区" +
+        Gid('s_county').value + "</h3>"
+
+        Gid('s_county').setAttribute('onchange','showArea()');
+    }
+
+    $(function(){
+        $('#dialog1').dialog({
+            autoOpen: false,
+            closeBtn: false,
+            buttons: {
+                '确定': function(){
+                    this.close();
+                }
+            }
+        });
+        $('form').submit(function(){
+            var url = $(this).attr('action');
+            var data = $(this).serialize();
+
+            $.ajax({
+                url:url,
+                data:data,
+                type:'post',
+                dataType:'json',
+                success:function(i){
+                    $('#dialog1 p').html(i.info);
+                    $('#dialog1').dialog('open');
+                }
+            })
+            return false;
+        })
+    })
+</script>
+</body>
+</html>

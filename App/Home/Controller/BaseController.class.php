@@ -15,5 +15,6 @@ class BaseController extends Controller
             $this->is_mobile = 1;
             C('DEFAULT_THEME', 'm');
         }
+        $this->assign('now_action', CONTROLLER_NAME . '/' . ACTION_NAME);
     }
 }

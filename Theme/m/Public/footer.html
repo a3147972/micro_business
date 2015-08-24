@@ -1,0 +1,48 @@
+<div class="footer">
+        <ul>
+            <li class="footer_img1">
+                <a href="{:U('/')}">
+                    <if condition="$now_action eq 'Index/index'">
+                        <img src="__PUBLIC__/img/footer_img1.png" alt="">
+                        <p class="footer_p_active">首页</p>
+                    <else />
+                        <img src="__PUBLIC__/img/footer_img_bg1.png" alt="">
+                        <p>首页</p>
+                    </if>
+                </a>
+            </li>
+            <li class="footer_img2">
+                <a href="{:U('AgentApplication/index')}">
+                    <if condition="$now_action eq 'AgentApplication/index'">
+                        <img src="__PUBLIC__/img/footer_img2.png" alt="">
+                        <p class="footer_p_active">申请代理</p>
+                    <else />
+                        <img src="__PUBLIC__/img/footer_img_bg2.png" alt="">
+                        <p>申请代理</p>
+                    </if>
+                </a>
+            </li>
+            <li class="footer_img3">
+                <a href="{:U('Know/index')}">
+                    <if condition="$now_action eq 'Know/index'">
+                        <img src="__PUBLIC__/img/footer_img3.png" alt="">
+                        <p class="footer_p_active">知识介绍</p>
+                    <else />
+                        <img src="__PUBLIC__/img/footer_img_bg3.png" alt="">
+                        <p>知识介绍</p>
+                    </if>
+                </a>
+            </li>
+            <li class="footer_img4">
+                <a href="{:U('Singlepage/index', array('id'=>1))}">
+                    <if condition="$now_action eq 'Singlepage/index'">
+                        <img src="__PUBLIC__/img/footer_img4.png" alt="">
+                        <p class="footer_p_active">关于我们</p>
+                    <else />
+                        <img src="__PUBLIC__/img/footer_img_bg4.png" alt="">
+                        <p>关于我们</p>
+                    </if>
+                </a>
+            </li>
+        </ul>
+    </div>

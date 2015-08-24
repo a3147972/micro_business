@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/know.css">
+</head>
+<body>
+    <include file="Public/header" />
+    <div class="list">
+        <ul>
+        <volist name="list" id="vo">
+            <li>
+                <a href="{:U('Know/content', array('id'=>$vo['id']))}">
+                    <div class="list_title">
+                    {$vo.title}
+                    <p>{$vo.ctime}</p>
+                </div>
+                <div class="list_thumb">
+                    <img src="{$vo.thumb}" alt="" class="img-responsive">
+                </div>
+                <div class="list_desc">
+                   {:msubstr(strip_tags(htmlspecialchars_decode($vo['content'])),0,40)}
+                </div>
+                <div class="list_more clearfix">
+                    <hr>
+                    <a href="{:U('Know/content', array('id'=>$vo['id']))}">
+                        阅读全文
+                    <i class="list_more_icon">
+                        <img src="__PUBLIC__/img/select_icon.png" alt="" height="30px">
+                    </i>
+                    </a>
+                </div>
+                </a>
+            </li>
+        </volist>
+        </ul>
+    </div>
+    <!-- footer -->
+    <include file="Public/footer" />
+    <!-- /footer -->
+<script src="__PUBLIC__/GMU/dist/zepto.js"></script>
+</body>
+</html>

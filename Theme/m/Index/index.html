@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/GMU/assets/widget/slider/slider.css" />
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/GMU/assets/widget/slider/slider.default.css" /> <!--皮肤文件，若不使用该皮肤，可以不加载-->
+    <link rel="stylesheet" href="__PUBLIC__/css/index.css">
+</head>
+<body>
+    <!-- banner -->
+    <div class="banner" id="banner">
+        <div>
+            <a href=""><img lazyload="{:C('img1')}" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img lazyload="{:C('img2')}" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img lazyload="{:C('img3')}" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img lazyload="{:C('img4')}" alt=""></a>
+        </div>
+        <div>
+            <a href=""><img lazyload="{:C('img5')}" alt=""></a>
+        </div>
+    </div>
+    <!-- /banner -->
+    <!-- search -->
+    <div class="search">
+        <div class="search-midden">
+            <form class="clearfix" action="{:U('Agent/result')}" method="post">
+                <div class="search-text">
+                    <input type="text" name="k" id="" placeholder="       授权查询">
+                </div>
+                <div class="search-submit">
+                    <input type="submit" value="">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /search -->
+    <!-- know -->
+    <div class="know">
+        <div class="know-midden">
+            <div class="sort_title">
+                <a href="{:U('Know/index')}">知识介绍</a>
+            </div>
+            <ul class="clearfix">
+                <volist name="know_class_list" id="know_class_vo">
+                    <li><a href="{:U('Know/index', array('class_id'=>$know_class_vo['id']))}"><img src="{$know_class_vo.thumb}" alt="" class='img-responsive'></a></li>
+                </volist>
+            </ul>
+        </div>
+    </div>
+    <!-- /know -->
+    <!-- lesson -->
+    <div class="lesson">
+        <div class="lesson-midden">
+            <div class="sort_title">
+                <a href="{:U('Lesson/index')}">培训课程</a>
+            </div>
+            <div class="lesson-bg">
+                <a href="{:U('Lesson/index')}"><img src="__PUBLIC__/img/lesson_bg.png" alt="" class="img-responsive"></a>
+            </div>
+        </div>
+    </div>
+    <!-- /lesson -->
+    <!-- footer -->
+        <include file="Public/footer" />
+    <!-- /footer -->
+<script src="__PUBLIC__/GMU/dist/zepto.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/extend/touch.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/extend/matchMedia.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/extend/event.ortchange.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/extend/parseTpl.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/core/gmu.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/core/event.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/core/widget.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/slider.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/arrow.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/dots.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/$touch.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/$autoplay.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/$lazyloadimg.js"></script>
+<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/imgzoom.js"></script>
+<script src="__PUBLIC__/js/index.js"></script>
+</body>
+</html>

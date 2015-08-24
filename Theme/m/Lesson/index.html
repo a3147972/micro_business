@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/lesson.css">
+</head>
+<body>
+    <include file="Public/header" />
+    <div class="list">
+        <ul>
+            <volist name="list" id="vo">
+            <li>
+                <div class="list_time">
+                    课题：{$vo.title}
+                </div>
+                <div class="list_time">
+                    时间：{$vo.start_time}
+                </div>
+                <div class="list_type">
+                    <p class="" style="float: left;">
+                        主讲人：{$vo.speaker}
+                    </p>
+                    <p style="float:right;margin-right: 5px;">课程类型：{$vo.type}</p>
+                </div>
+                <div class="list_desc">
+                    <div class="clear"></div>
+                    {:htmlspecialchars_decode($vo['desc'])}
+                </div>
+                <div class="list_status">
+                    <eq name="vo.status" value="0">
+                        <p class="no-start">未开始</p>
+                    </eq>
+                    <eq name="vo.status" value="1">
+                        <p class="no-start">正在进行</p>
+                    </eq>
+                    <eq name="vo.status" value="-1">
+                        <p class="no-start">已结束</p>
+                    </eq>
+                </div>
+            </li>
+            </volist>
+        </ul>
+    </div>
+    <!-- footer -->
+    <include file="Public/footer" />
+    <!-- /footer -->
+<script src="__PUBLIC__/GMU/dist/zepto.js"></script>
+</body>
+</html>

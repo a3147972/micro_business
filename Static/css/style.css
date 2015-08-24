@@ -1,0 +1,35 @@
+body{background: #f1f1f1}
+ul li{list-style: none;}
+ul{padding-left: 0}
+a{color:#000;}
+a:hover{text-decoration: none}
+div.footer{
+    height:49px;
+    width:100%;
+    background: #fff;
+    border-top: 1px solid #ccc;
+    position: fixed;
+    bottom: 0;
+}
+div.clear{clear: both;}
+div.footer ul li{
+    padding-top: 5px;
+    width:25%;
+    float: left;
+    height:49px;
+    text-align: center;
+}
+div.footer ul li img{
+    height:16px;
+}
+div.footer ul li p{
+    color:#666;
+    font-size: 0.1em;
+    margin-top: 3px;
+}
+div.footer ul li p.footer_p_active{
+    color:#2cc6ff;
+}
+div.header{height:44px;background-color: #2cc6ff;line-height: 44px;text-align: center;}
+div.header a{color:#fff;font-size: 16px;}
+div.header a.backBtn{font-size: 20px;width:40px;float: left;}

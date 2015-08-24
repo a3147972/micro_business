@@ -99,6 +99,14 @@
                         </td>
                         <td>{$vo.ctime}</td>
                         <td>
+                          <switch name="vo.status">
+                            <case value="0">
+                              <a href="{:U('status', array('id'=>$vo['id'],'status'=>1))}" onclick="return AjaxBtn(this)">更改状态</a>
+                            </case>
+                            <case value="1">
+                              <a href="{:U('status', array('id'=>$vo['id'],'status'=>-1))}" onclick="return AjaxBtn(this)">更改状态</a>
+                            </case>
+                          </switch>
                           <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>
                           <a href="{:U('del',array('id'=>$vo['id']))}" onclick="return AjaxBtn(this)">删除</a>
                         </td>

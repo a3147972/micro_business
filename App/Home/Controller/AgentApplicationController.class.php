@@ -11,6 +11,10 @@ class AgentApplicationController extends BaseController
      */
     public function index()
     {
+        //代理类型
+        $class_list = D('AgentClass')->_list(array(), '', 'id desc');
+        $this->assign('class_list', $class_list);
+        $this->assign('header_title', '代理申请');
         $this->display();
     }
 

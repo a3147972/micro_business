@@ -1,0 +1,32 @@
+div.list{margin-top: 20px;color:#666;
+    margin-bottom: 59px;
+}
+div.list ul li{
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+div.list div.list_time{
+    border-bottom:1px solid #cfcfcf;
+    height:44px;line-height: 44px;
+}
+div.list div.list_type{
+    border-bottom:1px solid #cfcfcf;
+    height:44px;line-height: 44px;
+
+}
+div.list div.list_desc{
+    border-bottom:1px solid #cfcfcf;
+    text-indent: 30px;
+}
+div.list div.list_status{
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+div.list div.list_status p.no-start{
+    color:#2cc6ff;
+}

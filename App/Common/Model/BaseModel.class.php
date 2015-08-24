@@ -30,6 +30,7 @@ class BaseModel extends Model
             $page_index = ($page - 1) * $page_size;
             $list = $this->where($map)->field($field)->order($order)->limit($page_index . ',' . $page_size)->select();
         }
+
         $list = empty($list) ? array() : $list;
         return $list;
     }

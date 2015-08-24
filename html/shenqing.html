@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>首页</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/shenqing.css">
+</head>
+<body>
+    <div class="header">
+        <a href="" class="backBtn"><img src="img/header_back_btn.png" alt="" height="45px" style="margin-top: -5px;"></a>
+        <a href="" class="header_title">申请代理</a>
+    </div>
+    <div class="shenqing">
+        <div class="shenqing_remark">
+            <i class="shenqing_icon"><img src="img/shenqing_remark_icon.png" alt=""></i>说明：本页面为无意向上级代理的申请，填写资料后我们会根据您的情况为您分配上级和大区，若您已有想加的代理或团队，请您退出本页面并联系该代理，然后从该代理的推荐连接进入填写授权页面。如有问题请直接回复公众账号！
+        </div>
+        <form action="" method="post">
+            <ul>
+                <li><input type="text" name="name" id="" placeholder="    姓名" class="border_bottom_none"></li>
+                <li><input type="text" name="mobile" id="" placeholder="    手机号" class="border_bottom_none"></li>
+                <li><input type="text" name="wechat_number" id="" placeholder="    微信"></li>
+            </ul>
+            <ul>
+                <li><input type="text" name="recommend" id="" placeholder="    推荐人" class="border_bottom_none"></li>
+                <li><input type="text" name="work_date" id="" placeholder="    从事微商时间" class="border_bottom_none"></li>
+                <li><input type="text" name="month_sale" id="" placeholder="    月销售额" class="border_bottom_none"></li>
+                <li><input type="text" name="brand" id="" placeholder="    品牌" class="border_bottom_none"></li>
+                <li><input type="text" name="reason" id="" placeholder="    申请理由"></li>
+            </ul>
+            <ul>
+                <li>
+                    <select id="s_province" name="province" style="border_bottom_none"></select>
+                </li>
+                <li>
+                    <select id="s_city" name="city" style="border_bottom_none"></select>
+                </li>
+                 <li>
+                    <select id="s_county" name="county" style="border_bottom_none"></select>
+                </li>
+                <li><select name="source">
+                    <option value="1">朋友</option>
+                    <option value="2">报纸</option>
+                    <option value="3">电视</option>
+                    <option value="4">互联网</option>
+                    <option value="5">其他</option>
+                </select></li>
+                <li>
+                    <select name="" id="" placeholder="代理等级">
+                        <option value="1">普通代理</option>
+                    </select>
+                </li>
+            </ul>
+            <div class="submit-btn">
+                <input type="submit" value="" class="shenqing_submit">
+            </div>
+        </form>
+    </div>
+<script src="GMU/dist/zepto.js"></script>
+<script src="js/area.js"></script>
+<script>
+    _init_area();
+    var Gid  = document.getElementById ;
+var showArea = function(){
+    Gid('show').innerHTML = "<h3>省" + Gid('s_province').value + " - 市" +
+    Gid('s_city').value + " - 县/区" +
+    Gid('s_county').value + "</h3>"
+
+    Gid('s_county').setAttribute('onchange','showArea()');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>查询结果页</title>
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/search.css">
+</head>
+<body>
+    <include file="Public/header" />
+    <div class="result">
+        <ul>
+        <volist name="list" id="vo">
+            <li>
+                <div class="result_title">
+                    <img src="__PUBLIC__/img/search_logo.png" alt="" height="20px">
+                </div>
+                <hr>
+                <div class="result_content clearfix">
+                    <div class="avatar">
+                        <img src="{$vo.avatar}" alt="" width="100px">
+                    </div>
+                    <div class="content">
+                        <ul>
+                            <li>姓名：{$vo.name}</li>
+                            <li>手机号：{$vo.mobile}</li>
+                            <li>微信号：{$vo.wechat_number}</li>
+                            <li>代理等级：{$vo.class_name}</li>
+                            <li>授权编码：{$vo.authorize_code}</li>
+                        </ul>
+                    </div>
+                    <div class="zhang">
+                        <img src="__PUBLIC__/img/search_zhang.png" alt="" class="img-responsive">
+                    </div>
+                </div>
+            </li>
+        </volist>
+        </ul>
+    </div>
+    <!-- footer -->
+    <include file="Public/footer" />
+    <!-- /footer -->
+<script src="__PUBLIC__/GMU/dist/zepto.js"></script>
+</body>
+</html>

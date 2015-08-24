@@ -1,0 +1,62 @@
+div.list{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 59px;
+}
+
+div.list ul li{
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #fff;
+    border:1px solid #ccc;
+    margin-bottom: 20px;
+}
+div.list div.list_title{
+    color:#666;
+    font-size: 22px;
+    padding-top: 10px;
+}
+div.list div.list_title p{
+    color:#999;
+    font-size: 18px;
+}
+div.list div.list_thumb{
+    margin-bottom: 10px;
+}
+div.list div.list_desc{
+    color:#999;
+    text-indent: 30px;
+    line-height: 150%;
+}
+div.list div.list_more{
+    font-size: 20px;
+    padding-bottom: 10px;
+    color:#666;
+}
+div.list div.list_more hr{
+    margin-bottom: 10px;
+}
+div.list div.list_more i.list_more_icon{
+    float: right;
+}
+
+div.content{
+    background: #fff;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 49px;
+}
+div.content div.title{
+    margin-bottom: 10px;
+    color:#666;
+    font-size: 22px;
+}
+div.content div.title p{
+    color:#999;
+    font-size: 16px;
+}

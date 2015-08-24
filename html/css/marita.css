@@ -1,0 +1,28 @@
+div.list{background: #fff;padding-top: 15px;margin-bottom: 59px;}
+div.list ul li{border-bottom: 1px solid #ccc;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+div.list div.list_thumb{
+    width:100px;
+    float: left;
+    margin-top: 10px;
+}
+div.list div.list_content{
+    margin-left:100px;
+}
+div.list div.list_content div.list_title{
+    color:#666;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+div.list div.list_content div.list_desc{
+    font-size: 12px;
+    color:#999;
+}
+div.list div.list_content div.list_time{
+    font-size: 12px;
+    color:#999;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,44 @@
+div.result{padding-left: 10px;padding-right: 10px;margin-top: 10px;margin-bottom: 59px;}
+
+div.result ul li{
+    background: #fff;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border:1px solid #ccc;
+    margin-bottom: 20px;
+}
+div.result ul li div.result_content ul li{
+    border:none;
+    margin-bottom:0px;
+}
+div.result hr{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+div.result div.result_title{
+    margin-left:20px;
+    padding-top: 20px;
+}
+div.result div.result_content{
+    margin-left: 10px;
+    padding-bottom: 20px;
+}
+div.result div.result_content div.avatar{
+    float: left;
+}
+div.result div.result_content div.content{
+    float: left;
+    margin-left: 10px;
+}
+div.result div.result_content div.content ul li{
+    line-height: 180%;
+    font-size: 14px;
+}
+div.result div.zhang{
+    position: absolute;
+    clear: both;
+    width: 90px;
+    margin-top: 77px;
+    margin-left: 65px;
+}

@@ -1,0 +1,63 @@
+div.banner{
+    position: relative; overflow: auto;
+}
+div.banner ul li{
+    float: left;
+}
+div.search{
+    margin-top: 14px;
+    background: #fff;
+}
+div.search div.search-midden{
+    padding-left: 10px;
+    padding-right: 10px;
+    width:100%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+div.search-text{float: left;margin-right:-136px;width:100%;}
+div.search-submit{float: right;width:106px;}
+div.search div.search-midden form input[type=text]{
+    height:30px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius:3px;
+    border-color:#2cc6ff;
+    border-width: 1px;
+    width:100%;
+    background: url('../img/search_icon.png') no-repeat 3px;
+    background-size:20px 20px;
+    background-color: #fff;
+}
+div.search div.search-midden form input[type=submit]{
+    background: url('../img/search_button.png');
+    background-size: 106px 30px;
+    border:none;
+    width:106px;
+    height:30px;
+}
+
+div.know{margin-top: 10px; background-color: #fff;padding-bottom: 10px;}
+div.know-midden{
+    padding-left: 10px; padding-right: 10px;
+}
+div.know-midden ul li{
+    width:50%;
+    float: left;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+div.sort_title{
+    height:34px;
+    padding-top: 10px;
+}
+div.sort_title a{
+    color:#666;
+}
+div.lesson{margin-top: 10px; padding-bottom: 10px;background-color: #fff;margin-bottom: 59px;}
+div.lesson-midden{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.ui-slider-pre{display: none;}
+.ui-slider-next{display: none;}
