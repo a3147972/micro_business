@@ -11,5 +11,4 @@ $(function(){
         })
         $(this).attr('placeholder', '       授权查询');
     })
-    $('#banner').slider( { imgZoom: true });
 })
