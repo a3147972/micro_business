@@ -81,7 +81,7 @@ class MenuController extends BaseController
                         break;
                     case 2:
                         $_list[$_v['pid']]['sub_button'][$_v['id']]['type'] = 'view';
-                        $_list[$_v['pid']]['sub_button'][$_v['id']]['url'] = $_v['url'];
+                        $_list[$_v['pid']]['sub_button'][$_v['id']]['url'] = htmlspecialchars_decode($_v['url']);
                         break;
                 }
             }
