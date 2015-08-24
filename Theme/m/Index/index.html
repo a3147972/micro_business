@@ -6,27 +6,28 @@
     <title>首页</title>
     <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="__PUBLIC__/css/style.css">
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/GMU/assets/widget/slider/slider.css" />
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/GMU/assets/widget/slider/slider.default.css" /> <!--皮肤文件，若不使用该皮肤，可以不加载-->
+    <link rel="stylesheet" href="__PUBLIC__/css/swiper.min.css">
     <link rel="stylesheet" href="__PUBLIC__/css/index.css">
 </head>
 <body>
     <!-- banner -->
-    <div class="banner" id="banner">
-        <div>
-            <a href=""><img lazyload="{:C('img1')}" alt=""></a>
+    <div class="banner swiper-container" id="banner">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <a href=""><img src="{:C('img1')}" alt="" width="100%"></a>
         </div>
-        <div>
-            <a href=""><img lazyload="{:C('img2')}" alt=""></a>
+        <div class="swiper-slide">
+            <a href=""><img src="{:C('img2')}" alt="" width="100%"></a>
         </div>
-        <div>
-            <a href=""><img lazyload="{:C('img3')}" alt=""></a>
+        <div class="swiper-slide">
+            <a href=""><img src="{:C('img3')}" alt="" width="100%"></a>
         </div>
-        <div>
-            <a href=""><img lazyload="{:C('img4')}" alt=""></a>
+        <div class="swiper-slide">
+            <a href=""><img src="{:C('img4')}" alt="" width="100%"></a>
         </div>
-        <div>
-            <a href=""><img lazyload="{:C('img5')}" alt=""></a>
+        <div class="swiper-slide">
+            <a href=""><img src="{:C('img5')}" alt="" width="100%"></a>
+        </div>
         </div>
     </div>
     <!-- /banner -->
@@ -74,20 +75,13 @@
         <include file="Public/footer" />
     <!-- /footer -->
 <script src="__PUBLIC__/GMU/dist/zepto.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/extend/touch.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/extend/matchMedia.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/extend/event.ortchange.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/extend/parseTpl.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/core/gmu.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/core/event.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/core/widget.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/slider.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/arrow.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/dots.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/$touch.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/$autoplay.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/$lazyloadimg.js"></script>
-<script type="text/javascript" src="__PUBLIC__/GMU/src/widget/slider/imgzoom.js"></script>
+<script src="__PUBLIC__/js/swiper.min.js"></script>
 <script src="__PUBLIC__/js/index.js"></script>
+<script type="text/javascript">
+  var mySwiper = new Swiper('.swiper-container',{
+    loop: true,
+    autoplay: 3000,
+  });
+</script>
 </body>
 </html>
