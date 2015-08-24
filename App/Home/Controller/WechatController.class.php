@@ -15,7 +15,7 @@ class WechatController extends BaseController
     public function _initialize()
     {
         $options = array(
-            'token' => C('TOKEN'), //填写你设定的key
+            'token' => C('WX_TOKEN'), //填写你设定的key
             'encodingaeskey' => C('ENCODINGAESKEY'), //填写加密用的EncodingAESKey
             'appid' => C('APPID'), //填写高级调用功能的app id
             'appsecret' => C('APPSECRET'), //填写高级调用功能的密钥
