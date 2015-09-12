@@ -18,10 +18,9 @@ class NodeModel extends BaseModel
      * @param  string $order 排序规则
      * @return array         节点数据
      */
-    public function lists($map = array(), $order = '')
+    public function lists($map = array(), $order = 'sort desc,id desc')
     {
         $field = 'id,pid,name,node,is_show';
-
         $list = $this->_list($map, $field, $order, 0);
 
         return $list;
@@ -36,7 +35,7 @@ class NodeModel extends BaseModel
     {
         if ($group_id == 1) {
             //超级管理员返回所有节点
-            $list = $this->lists(array(), 'pid asc,id asc');
+            $list = $this->lists(array(), 'pid asc,sort desc,id asc');
 
             return $list;
         }

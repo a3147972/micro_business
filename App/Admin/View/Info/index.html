@@ -27,7 +27,7 @@
           <div class="page-header">
             <div class="page-title">
               <h3>
-                知识管理
+                新闻中心
               </h3>
             </div>
           </div>
@@ -55,7 +55,7 @@
                   <div class="alert alert-info fade in">
                     <i class="icon-remove close" data-dismiss="alert">
                     </i>
-                    列表页地址：{:UR('Know')}
+                    列表页地址：{:UR('Info')}
                   </div>
                   <table class="table table-hover table-bordered">
                     <thead>
@@ -66,9 +66,7 @@
                         <th>
                           标题
                         </th>
-                        <th>产品编码</th>
-                        <th>访问URL</th>
-                        <th>产品分类</th>
+                        <th>访问url</th>
                         <th>
                           操作
                         </th>
@@ -80,12 +78,10 @@
                         <td>
                           {$vo.id}
                         </td>
-                        <td>{$vo.authorize_code}</td>
                         <td>
                           {$vo.title}
                         </td>
-                        <td>{:UR('Know','content', array('id'=>$vo['id']))}</td>
-                        <td>{$vo.class_name}</td>
+                        <td>{:UR('Info','content', array('id'=>$vo['id']))}</td>
                         <td>
                           <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>
                           <a href="{:U('del',array('id'=>$vo['id']))}" onclick="return AjaxBtn(this)">删除</a>
