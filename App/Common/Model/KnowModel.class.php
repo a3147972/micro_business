@@ -18,6 +18,7 @@ class KnowModel extends BaseModel
         array('title', 'require', '请输入标题'),
         array('content', 'require', '请输入内容'),
         array('class_id', 'require', '请选择知识分类'),
+        array('authorize_code', 'require', '请填写产品编码'),
     );
 
     //自动完成
@@ -28,7 +29,7 @@ class KnowModel extends BaseModel
 
     public function lists($map = array(), $order = '', $page = 1, $page_size = 10)
     {
-        $field = 'id,class_id,title,thumb,ctime';
+        $field = 'id,class_id,title,authorize_code,thumb,ctime';
         $list = $this->_list($map, $field, $order);
 
         if (empty($list)) {
