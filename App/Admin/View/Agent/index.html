@@ -33,6 +33,8 @@
           </div>
           <p class="btn-toolbar btn-toolbar-demo">
             <a href="{:U('add')}" class="btn btn-primary">新增</a>
+            <a href="{:U('import')}" class="btn btn-default" onclick="document.all.tt.click();return false;">导入</a>
+            <input type="file" name="tt" onchange="return AjaxUpload(this)" data-href="{:U('Agent/import')}" data-input="input-excel" id="import_excel" style="display:none;">
           </p>
           <div class="row">
             <div class="col-md-12">
@@ -64,9 +66,7 @@
                         </th>
                         <th>代理级别</th>
                         <th>授权编码</th>
-                        <th>
-                          代理商照片
-                        </th>
+
                         <th>代理商手机号</th>
                         <th>代理商身份证号</th>
                         <th>代理商微信号</th>
@@ -84,11 +84,9 @@
                         <td>
                           {$vo.name}
                         </td>
-                        <td>{$vo.class_name}</td>
+                        <td>{$vo.class}</td>
                         <td>{$vo.authorize_code}</td>
-                        <td>
-                        <img src="{$vo.avatar|imgFormat}" alt="" width="150">
-                        </td>
+
                         <td>{$vo.mobile}</td>
                         <td>{$vo.id_card}</td>
                         <td>{$vo.wechat_number}</td>
