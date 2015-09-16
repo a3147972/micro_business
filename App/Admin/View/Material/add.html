@@ -72,6 +72,14 @@
                   </div>
                   <div class="form-group">
                     <label class="col-md-2 control-label">
+                    发布事件:
+                    </label>
+                    <div class="col-md-10">
+                      <input type="text" name="ctime" class="form-control datepicker" placeholder="发布事件" value="{$vo.ctime}" style="z-index:1000;">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-2 control-label">
                     内容:
                     </label>
                     <div class="col-md-10">
@@ -97,5 +105,21 @@
     </div>
   </div>
   <include file="Public/script" />
+  <script>
+  $(".datepicker").datepicker({
+        defaultDate: +7,
+        showOtherMonths: true,
+        autoSize: true,
+        appendText: '<span class="help-block">(yyyy-mm-dd)</span>',
+        dateFormat: "yy-mm-dd",
+        beforeShow:function() {
+            setTimeout(
+              function(){
+                $('#ui-datepicker-div').css('z-index', 1000)
+              },100
+            )
+        }
+    });
+    </script>
 </body>
 </html>

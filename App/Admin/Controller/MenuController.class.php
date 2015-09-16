@@ -9,8 +9,6 @@ class MenuController extends BaseController
 {
     public function index()
     {
-        $page = I('page', 1);
-        $page_size = I('page_size', 10);
         $order = I('order', '');
 
         $model = D(CONTROLLER_NAME);
@@ -21,7 +19,7 @@ class MenuController extends BaseController
         $map = method_exists($this, '_filter') ? $this->_filter() : array();
 
         //查询数据
-        $list = $model->lists($map, $order, $page, $page_size);
+        $list = $model->lists($map, $order);
 
         $list = ArrayHelper::array_tree($list);
 

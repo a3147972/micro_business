@@ -52,7 +52,7 @@ class MenuModel extends BaseModel
         array('mtime', 'now', 3, 'function'),
     );
 
-    public function lists($map = array(), $order = '', $page = 1, $page_size = 10)
+    public function lists($map = array(), $order = '', $page = 0, $page_size = 10)
     {
         $field = 'id,pid,name,type,url,key,level';
         $list = $this->_list($map, $field, $order, $page, $page_size);

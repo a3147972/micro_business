@@ -7,7 +7,13 @@ class MaterialController extends BaseController
 {
     public function index()
     {
-        $list = D('Material')->_list();
+        $date = I('get.date', '');
+        $map = array();
+
+        if ($date) {
+            $map['_string'] = 'date_format(ctime, "%Y-%m-%d") = "' . $date . '"';
+        }
+        $list = D('Material')->_list($map);
 
         $this->assign('list', $list);
         $this->display();

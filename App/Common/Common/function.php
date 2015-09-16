@@ -133,7 +133,7 @@ function msubstr($str, $start = 0, $length, $charset = "utf-8", $suffix = true)
 
 function UR($controller_name, $action_name = 'index', $param = array()){
     $domain = $_SERVER['HTTP_HOST'];
-    $domain_url = (is_ssl() ? 'https://' : 'http://') . $domain.__APP__.'/index.php?';
+    $domain_url = (is_ssl() ? 'https://' : 'http://') . $domain.__APP__.'?';
     $url = array('m'=>'','c'=>$controller_name,'a'=>$action_name);
     $url = !empty($param) ? array_merge($url, $param) : $url;
     return $domain_url.http_build_query($url);

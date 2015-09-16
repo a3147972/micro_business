@@ -22,7 +22,7 @@ class WechatController extends BaseController
         );
 
         $this->wechat = new Wechat($options);
-        $this->wechat->valid();
+        // $this->wechat->valid();
 
         $type = $this->wechat->getRevType();
 
@@ -39,6 +39,7 @@ class WechatController extends BaseController
             case Wechat::EVENT_SUBSCRIBE:
                 $this->_subscribe();
                 break;
+
         }
     }
 
@@ -49,6 +50,13 @@ class WechatController extends BaseController
     public function _text($content = '')
     {
         $content = empty($content) ? $this->wechat->getRevData() : $content;
+
+        switch ($content) {
+            case 'sucai':
+                $this->_text_sucai();
+                return;
+                break;
+        }
 
         $map['name'] = $content;
 
@@ -125,5 +133,29 @@ class WechatController extends BaseController
         }
 
         return $_list;
+    }
+
+    /**
+     * 微信自定义菜单输出素材包
+     * @method _text_sucai
+     * @return [type]      [description]
+     */
+    private function _text_sucai()
+    {
+        $list = D('Material')->field('date_format(ctime, "%Y-%m-%d") as ctime')->group('date_format(ctime, "%y-%m-%d")')->order('ctime desc')->limit(0, 10)->select();
+        $list = array_column($list, 'ctime');
+
+        $str = "请点击链接查看产品素材: \n";
+        foreach ($list as $_k => $_v) {
+            $str .= '['. ($_k + 1) .']<a href="'.UR('Material', 'index', array('date' => $_v)).'">朋友圈素材'.date('m月d日', strtotime($_v)).'</a>'."\n";
+        }
+        $str .= '['. (count($list) + 1) .']<a href="'.UR('Material', 'index').'">查看更多素材</a>';
+
+        $this->wechat->text($str)->reply();
+    }
+
+    public function test()
+    {
+        $this->_text_sucai();
     }
 }

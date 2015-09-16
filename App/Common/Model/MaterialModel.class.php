@@ -16,11 +16,11 @@ class MaterialModel extends BaseModel
     protected $_validate = array(
         array('title', 'require', '请输入素材标题'),
         array('text', 'require', '请输入素材内容'),
+        array('ctime', 'require', '请选择发布时间')
     );
 
     //自动完成
     protected $_auto = array(
-        array('ctime', 'now', 1, 'function'),
         array('mtime', 'now', 3, 'function'),
     );
 }
