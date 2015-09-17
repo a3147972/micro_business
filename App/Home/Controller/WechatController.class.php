@@ -153,9 +153,4 @@ class WechatController extends BaseController
 
         $this->wechat->text($str)->reply();
     }
-
-    public function test()
-    {
-        $this->_text_sucai();
-    }
 }
