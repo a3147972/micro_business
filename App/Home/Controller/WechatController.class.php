@@ -22,7 +22,7 @@ class WechatController extends BaseController
         );
 
         $this->wechat = new Wechat($options);
-
+        $this->wechat->valid();
         $type = $this->wechat->getRev()->getRevType();
 
         switch ($type) {
