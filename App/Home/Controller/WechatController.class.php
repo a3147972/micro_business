@@ -22,7 +22,6 @@ class WechatController extends BaseController
         );
 
         $this->wechat = new Wechat($options);
-        // $this->wechat->valid();
 
         $type = $this->wechat->getRevType();
 
@@ -147,9 +146,9 @@ class WechatController extends BaseController
 
         $str = "请点击链接查看产品素材: \n";
         foreach ($list as $_k => $_v) {
-            $str .= '['. ($_k + 1) .']<a href="'.UR('Material', 'index', array('date' => $_v)).'">朋友圈素材'.date('m月d日', strtotime($_v)).'</a>'."\n";
+            $str .= '[' . ($_k + 1) . ']<a href="' . UR('Material', 'index', array('date' => $_v)) . '">朋友圈素材' . date('m月d日', strtotime($_v)) . '</a>' . "\n";
         }
-        $str .= '['. (count($list) + 1) .']<a href="'.UR('Material', 'index').'">查看更多素材</a>';
+        $str .= '[' . (count($list) + 1) . ']<a href="' . UR('Material', 'index') . '">查看更多素材</a>';
 
         $this->wechat->text($str)->reply();
     }
