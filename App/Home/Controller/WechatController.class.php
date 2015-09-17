@@ -23,7 +23,7 @@ class WechatController extends BaseController
 
         $this->wechat = new Wechat($options);
 
-        $type = $this->wechat->getRevType();
+        $type = $this->wechat->getRev()->getRevType();
 
         switch ($type) {
             //文本回复
@@ -150,6 +150,6 @@ class WechatController extends BaseController
         }
         $str .= '[' . (count($list) + 1) . ']<a href="' . UR('Material', 'index') . '">查看更多素材</a>';
 
-        $this->wechat->text($str)->reply();
+        $this->wechat->text($str)->reply();exit();
     }
 }
