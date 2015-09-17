@@ -61,6 +61,7 @@
                         <th>
                           分类名称
                         </th>
+                        <th>是否显示</th>
                         <th>
                           操作
                         </th>
@@ -75,6 +76,7 @@
                         <td>
                           {$vo.name}
                         </td>
+                        <td><eq name="vo.is_show" value="1">显示<else />不显示</eq></td>
                         <td>
                           <a href="{:U('edit',array('id'=>$vo['id']))}">编辑</a>
                           <a href="{:U('del',array('id'=>$vo['id']))}" onclick="return AjaxBtn(this)">删除</a>
