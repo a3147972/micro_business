@@ -53,7 +53,12 @@ class WechatController extends BaseController
         switch ($content) {
             case 'sucai':
                 $this->_text_sucai();
-                return;
+                exit();
+                break;
+            case 'agent_search':
+                $text = '请直接在微信公众平台输入姓名,手机号,微信号或授权编码查询';
+                $this->wechat->text($text)->reply();
+                exit();
                 break;
         }
 
@@ -62,7 +67,7 @@ class WechatController extends BaseController
         $info = D('Keywords')->_get($map);
 
         if (empty($info)) {
-            die();
+            $this->agent_search($content); //代理商查询
         }
 
         if ($info['type'] == 1) {
@@ -149,6 +154,29 @@ class WechatController extends BaseController
             $str .= '[' . ($_k + 1) . ']<a href="' . UR('Material', 'index', array('date' => $_v)) . '">朋友圈素材' . date('m月d日', strtotime($_v)) . '</a>' . "\n";
         }
         $str .= '[' . (count($list) + 1) . ']<a href="' . UR('Material', 'index') . '">查看更多素材</a>';
+
+        $this->wechat->text($str)->reply();exit();
+    }
+
+    /**
+     * 代理商查询
+     * @method agent_search
+     * @param  string       $content 查询内容
+     * @return str                查询结果字符串
+     */
+    private function agent_search($content)
+    {
+        $model = D('Agent');
+        $map['name|mobile|id_card|wechat_number|authorize_code'] = $content;
+
+        $find = $model->where($map)->order('id desc')->$find();
+
+        $str = "查询结果\n";
+        $str .= '【姓名】 ' . $find['name'] . "\n";
+        $str .= '【手机号】 ' . $find['mobile'] . "\n";
+        $str .= '【微信号】 ' . $find['wechat_number'] . "\n";
+        $str .= '【授权编码】 ' . $find['authorize_code'] . "\n";
+        $str .= '【代理等级】 ' . $find['class'] . "\n";
 
         $this->wechat->text($str)->reply();exit();
     }
