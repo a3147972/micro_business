@@ -48,7 +48,7 @@ class WechatController extends BaseController
      */
     public function _text($content = '')
     {
-        $content = empty($content) ? $this->wechat->getRevData() : $content;
+        $content = empty($content) ? $this->wechat->getRevContent() : $content;
 
         switch ($content) {
             case 'sucai':
@@ -169,7 +169,7 @@ class WechatController extends BaseController
         $model = D('Agent');
         $map['name|mobile|id_card|wechat_number|authorize_code'] = $content;
 
-        $find = $model->where($map)->order('id desc')->$find();
+        $find = $model->where($map)->order('id desc')->find();
 
         $str = "查询结果\n";
         $str .= '【姓名】 ' . $find['name'] . "\n";
