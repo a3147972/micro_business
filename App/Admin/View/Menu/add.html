@@ -28,9 +28,9 @@
           <div class="page-title">
             <h3>
             <eq name="action" value="add">
-              新增代理商
+              新增自定义菜单
             <else />
-              编辑代理商
+              编辑自定义菜单
             </eq>
             </h3>
           </div>
@@ -95,7 +95,7 @@
                       <eq name="action" value="edit">
                         <input type="hidden" name="id" value="{$vo.id}">
                       </eq>
-                      <input type="hidden" name="pid" value="{:I('pid', 0)}">
+                      <input type="hidden" name="pid" value="{$vo.pid|default='0'}">
                       <input type="hidden" name="level" value="{$vo.level|default=I('level',1)}">
                       <button class="btn btn-success" type="submit">
                         提交
