@@ -171,12 +171,17 @@ class WechatController extends BaseController
 
         $find = $model->where($map)->order('id desc')->find();
 
-        $str = "查询结果\n";
-        $str .= '【姓名】 ' . $find['name'] . "\n";
-        $str .= '【手机号】 ' . $find['mobile'] . "\n";
-        $str .= '【微信号】 ' . $find['wechat_number'] . "\n";
-        $str .= '【授权编码】 ' . $find['authorize_code'] . "\n";
-        $str .= '【代理等级】 ' . $find['class'] . "\n";
+        if ($find) {
+            $str = "查询结果\n";
+            $str .= '【姓名】 ' . $find['name'] . "\n";
+            $str .= '【手机号】 ' . $find['mobile'] . "\n";
+            $str .= '【微信号】 ' . $find['wechat_number'] . "\n";
+            $str .= '【授权编码】 ' . $find['authorize_code'] . "\n";
+            $str .= '【代理等级】 ' . $find['class'] . "\n";
+        } else {
+            $str = '咨询代理请联系微信：286959175';
+        }
+
 
         $this->wechat->text($str)->reply();exit();
     }
