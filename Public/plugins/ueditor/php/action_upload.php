@@ -12,7 +12,7 @@ $base64 = "upload";
 switch (htmlspecialchars($_GET['action'])) {
     case 'uploadimage':
         $config = array(
-            "pathFormat" => $CONFIG['imagePathFormat'],
+            "pathFormat" => './' .$CONFIG['imagePathFormat'],
             "maxSize" => $CONFIG['imageMaxSize'],
             "allowFiles" => $CONFIG['imageAllowFiles']
         );
