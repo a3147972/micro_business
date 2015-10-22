@@ -20,4 +20,9 @@ class AgentController extends BaseController
         $this->assign('header_title', '授权查询');
         $this->display();
     }
+
+    public function search()
+    {
+        $this->display();
+    }
 }
