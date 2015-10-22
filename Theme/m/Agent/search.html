@@ -24,9 +24,10 @@
         </div>
     </div>
     <!-- /search -->
+    <script src="__PUBLIC__/GMU/dist/zepto.js"></script>
     <script>
     $('form').submit(function(){
-        var k = $('input[name=k]').val();
+        var k = $.trim($('input[name=k]').val());
 
         if (k == '') {
             alert('请输入要查询的关键字');
