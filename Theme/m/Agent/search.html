@@ -24,5 +24,15 @@
         </div>
     </div>
     <!-- /search -->
+    <script>
+    $('form').submit(function(){
+        var k = $('input[name=k]').val();
+
+        if (k == '') {
+            alert('请输入要查询的关键字');
+            return false;
+        }
+    })
+    </script>
 </body>
 </html>
