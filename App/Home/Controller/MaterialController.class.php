@@ -14,8 +14,9 @@ class MaterialController extends BaseController
             $map['_string'] = 'date_format(ctime, "%Y-%m-%d") = "' . $date . '"';
         }
         $list = D('Material')->_list($map);
-
+        $header_title = $data ? $data . '素材列表' : '素材列表';
         $this->assign('list', $list);
+        $this->assign('header_title', $header_title);
         $this->display();
     }
 
